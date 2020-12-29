@@ -1,26 +1,25 @@
-## About
+## Description
 
-scoop, alias, dual-key-remap, fzf, fd, neovim, rclone
+Install scoop & git, then run alias.reg, then make dual-key-remap startup shortcut, then install fd & fzf & rclone using scoop
 
-## List
+### scoop + git
 
-1. scoop + git
+Please set git username afterward (powershell) <br>
+`Set-ExecutionPolicy AllSigned; Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex; scoop install git; scoop bucket add extras`
 
-   Please set git username afterward (powershell) <br>
-   `Set-ExecutionPolicy AllSigned; Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex; scoop install git; scoop bucket add extras`
+### windows startup dir
 
-2. cmd alias
+`%userprofile%/Microsoft/Windows/Start Menu/Programs/Startup`
 
-   `cd /d %userprofile% && git clone https://github.com/ahmaddynugroho/dotfiles && cd dotfiles && alias.reg`
+### neovim config
 
-3. dual-key-remap
+`https://github.com/ahmaddynugroho/nvim`
 
-   `mklink "%appdata%/Microsoft/Windows/Start Menu/Programs/Startup/dual-key-remap" "%userprofile%/dotfiles/dual-key-remap/dual-key-remap.exe"`
+#### Credit
 
-4. fzf, fd, rclone
-
-   `scoop install fzf fd rclone`
-
-5. nvim
-
-   `process`
+https://github.com/lukesampson/scoop
+https://github.com/ililim/dual-key-remap
+https://github.com/sharkdp/fd
+https://github.com/junegunn/fzf
+https://github.com/genotrance/ff
+https://github.com/rclone/rclone
