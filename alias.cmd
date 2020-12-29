@@ -8,7 +8,7 @@ set PATH=%PATH%;%userprofile%/dotfiles/ff
 
 rem files
 doskey alias=nvim %userprofile%/dotfiles/alias.cmd
-doskey ffcfg=nvim %userprofile%/scoop/shims/ff.cfg
+doskey ffcfg=nvim %userprofile%/dotfiles/ff/ff.cfg
 
 rem listing
 doskey l=fd -d 1
