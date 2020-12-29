@@ -13,7 +13,7 @@ Please set git username afterward (powershell) <br>
 
 ### neovim config
 
-`https://github.com/ahmaddynugroho/nvim`
+https://github.com/ahmaddynugroho/nvim
 
 #### Credit
 
