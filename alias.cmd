@@ -4,6 +4,7 @@ rem Aliases for ahmaddynugroho, only for cmd
 rem december 29, 2020
 
 rem adding ff folder to PATH. ff is a fzf wrapper for windows
+rem https://github.com/genotrance/ff
 set PATH=%PATH%;%userprofile%/dotfiles/ff
 
 rem files
