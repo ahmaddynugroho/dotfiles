@@ -1,6 +1,6 @@
 ## About
 
-scoop, alias, dual-key-remap, fzf, fd, neovim
+scoop, alias, dual-key-remap, fzf, fd, neovim, rclone
 
 ## One Liner
 
@@ -8,10 +8,13 @@ scoop, alias, dual-key-remap, fzf, fd, neovim
 
 1. scoop + git
 
-   Please set username afterward
+   Please set git username afterward
    `Set-ExecutionPolicy AllSigned; Set-ExecutionPolicy RemoteSigned -scope CurrentUser; iwr -useb get.scoop.sh | iex; scoop install git; scoop bucket add extras`
 
 2. cmd alias
+
+   `cd /d %userprofile% && git clone `
+
 3. dual-key-remap
 4. fzf, fd
 5. nvim

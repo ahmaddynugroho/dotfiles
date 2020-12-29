@@ -13,12 +13,14 @@ doskey la=fd -H -d 1
 
 rem git
 doskey g=git status
+doskey ga=git add $*
 doskey gl=git log --oneline --graph
-doskey gc=git commit -m "$*"
+doskey gc=git commit -m $*
 doskey gpush=git push
 doskey gpull=git pull
 
 rem directory
+doskey ex=explorer $*
 doskey cd=cd /d $*
 doskey ..=cd ..
 doskey ...=cd ../..
@@ -29,7 +31,7 @@ doskey e=cd /d E:
 doskey f=cd /d F:
 
 rem rclone
-doskey rc=rclone copy $1 $2
+doskey rc=rclone copy $1 $2 -P
 
 rem neovim
 doskey n=nvim $*
