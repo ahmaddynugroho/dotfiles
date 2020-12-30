@@ -8,7 +8,7 @@ rem https://github.com/genotrance/ff
 set PATH=%PATH%;%userprofile%/dotfiles/ff
 
 rem change default prompt for this session
-prompt $D$S$T$H$H$H$S$B$S$P$_$$$S
+prompt $E[0;36m$D$S$T$H$H$H$S$B$S$P$_$$$S$E[0;37m
 
 rem files
 doskey alias=nvim %userprofile%/dotfiles/alias.cmd
@@ -44,3 +44,6 @@ rem neovim
 doskey n=nvim $*
 doskey nc=nvim -u NONE $*
 doskey nd=cd %userprofile%/AppData/Local/nvim
+
+rem swipl
+doskey pl=swipl -s $*
