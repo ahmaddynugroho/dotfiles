@@ -5,3 +5,7 @@ with_other=CTRL
 remap_key=ENTER
 when_alone=ENTER
 with_other=CTRL
+
+remap_key=SPACE
+when_alone=SPACE
+with_other=ALT
