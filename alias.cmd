@@ -36,6 +36,7 @@ doskey a=cd /d %userprofile%/AppData
 doskey d=cd /d D:
 doskey e=cd /d E:
 doskey f=cd /d F:
+doskey z=exit
 
 rem rclone
 doskey rc=rclone copy $1 $2 -P
