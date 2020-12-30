@@ -7,6 +7,9 @@ rem adding ff folder to PATH for this session. ff is a fzf wrapper for windows
 rem https://github.com/genotrance/ff
 set PATH=%PATH%;%userprofile%/dotfiles/ff
 
+rem change default prompt for this session
+prompt $D$S$T$H$H$H$S$B$S$P$_$$$S
+
 rem files
 doskey alias=nvim %userprofile%/dotfiles/alias.cmd
 doskey ffcfg=nvim %userprofile%/dotfiles/ff/ff.cfg
