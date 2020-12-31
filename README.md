@@ -1,6 +1,10 @@
-## Description
+## Setup
 
-Install scoop & git, then run alias.reg, then make dual-key-remap startup shortcut, then install fd & fzf & rclone using scoop
+1. Run `alias.reg`
+2. Make `dual-key-remap.exe`'s shortcut in windows startup
+3. Install `scoop`
+4. Install `fzf` and `fd`
+5. Copy `ff.exe` & `ff.cfg` to `%userprofile%/scoop/shims`
 
 ### scoop + git
 
