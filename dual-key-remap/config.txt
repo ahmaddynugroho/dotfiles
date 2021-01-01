@@ -6,6 +6,6 @@ remap_key=ENTER
 when_alone=ENTER
 with_other=CTRL
 
-remap_key=SPACE
-when_alone=SPACE
+remap_key='
+when_alone='
 with_other=ALT
