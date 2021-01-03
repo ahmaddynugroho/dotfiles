@@ -4,7 +4,7 @@
 2. Make `dual-key-remap.exe`'s shortcut in windows startup
 3. Install `scoop`
 4. Install `fzf` and `fd`
-5. Copy `ff.exe` & `ff.cfg` to `%userprofile%/scoop/shims`
+5. Clone [cx](https://github.com/ahmaddynugroho/cx) and add it to `PATH`
 
 ### scoop + git
 
@@ -19,11 +19,11 @@ Please set git username afterward (powershell) <br>
 
 https://github.com/ahmaddynugroho/nvim
 
-#### Credit
+#### Links
 
-https://github.com/lukesampson/scoop
-https://github.com/ililim/dual-key-remap
-https://github.com/sharkdp/fd
-https://github.com/junegunn/fzf
-https://github.com/genotrance/ff
-https://github.com/rclone/rclone
+https://github.com/lukesampson/scoop<br>
+https://github.com/ililim/dual-key-remap<br>
+https://github.com/sharkdp/fd<br>
+https://github.com/junegunn/fzf<br>
+https://github.com/rclone/rclone<br>
+https://github.com/ahmaddynugroho/cx

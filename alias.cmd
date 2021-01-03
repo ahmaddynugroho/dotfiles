@@ -8,7 +8,6 @@ prompt $E[0;36m$D$S$T$H$H$H$S$B$S$P$_$$$S$E[0;37m
 
 rem files
 doskey alias=nvim %userprofile%/dotfiles/alias.cmd
-doskey ffcfg=nvim %userprofile%/dotfiles/ff/ff.cfg
 
 rem listing
 doskey l=fd -d 1
