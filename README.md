@@ -4,7 +4,7 @@
 2. Make `dual-key-remap.exe`'s shortcut in windows startup
 3. Install `scoop`
 4. Install `fzf` and `fd`
-5. Clone [cx](https://github.com/ahmaddynugroho/cx) and add it to `PATH`
+5. Clone [cx](https://github.com/ahmaddynugroho/cx) and add it to `PATH` (It's under rewriting process in rust, but the batch version still works)
 
 ### scoop + git
 
