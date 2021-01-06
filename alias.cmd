@@ -39,7 +39,7 @@ doskey rc=rclone copy $1 $2 -P
 rem neovim
 doskey n=nvim $*
 doskey nc=nvim -u NONE $*
-doskey nd=cd %userprofile%/AppData/Local/nvim
+doskey nd=cd /d %userprofile%/AppData/Local/nvim
 
 rem swipl
 doskey pl=swipl -s $*
