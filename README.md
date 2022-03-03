@@ -1,6 +1,7 @@
 ## Configure chezmoi
 ```bash
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply https://github.com/ahmaddynugroho/dotfiles```
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply https://github.com/ahmaddynugroho/dotfiles
+```
 
 ## Configure interception-caps2esc
 
@@ -11,4 +12,5 @@ cat <<\EOF | sudo tee /etc/interception/udevmon.d/caps2esc.yaml
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
-sudo systemctl enable udevmon```
+sudo systemctl enable udevmon
+```
