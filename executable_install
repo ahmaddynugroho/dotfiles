@@ -6,7 +6,8 @@ chezmoi init --apply https://github.com/ahmaddynugroho/dotfiles
 sudo pacman -Sy --needed - < ~/.pkglist
 # ofc it's neovim
 mkdir -p ~/.config/nvim && git clone -- https://github.com/ahmaddynugroho/nvim.git ~/.config/nvim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 # Configuring caps2esc
 cat <<\EOF | sudo tee /etc/interception/udevmon.d/caps2esc.yaml
 - JOB: intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE
