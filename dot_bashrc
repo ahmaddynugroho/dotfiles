@@ -51,10 +51,10 @@ exd() {
 # zoxide
 eval "$(zoxide init bash)"
 
-# prompt
-eval "$(starship init bash)"
-
 # tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+# prompt
+eval "$(starship init bash)"
