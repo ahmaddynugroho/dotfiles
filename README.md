@@ -1,5 +1,6 @@
 ## Configure chezmoi
-`$ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply https://github.com/ahmaddynugroho/dotfiles`
+```bash
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply https://github.com/ahmaddynugroho/dotfiles```
 
 ## Configure interception-caps2esc
 
