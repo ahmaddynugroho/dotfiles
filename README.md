@@ -1,8 +1,12 @@
 ```bash
-pacman -Sy git github-cli vi neovim
-pacman -Sy tmux nodejs npm php composer python starship zoxide fzf fd ripgrep
+# using archwsl on wsl2 (install using scoop)
 passwd
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 adduser -m -G wheel -s /bin/bash civbag
 passwd civbag
-visudo # add wheel to sudoers
+arch.exe --default-user civbag # from powershell
+sudo pacman-key --init
+sudo pacman-key --populate
+sudo pacman -Syy archlinux-keyring
+sudo pacman -Syu git github-cli vi neovim tmux nodejs npm php composer python starship zoxide fzf fd ripgrep
 ```
