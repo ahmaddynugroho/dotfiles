@@ -8,5 +8,5 @@ arch.exe --default-user civbag # from powershell
 sudo pacman-key --init
 sudo pacman-key --populate
 sudo pacman -Syy archlinux-keyring
-sudo pacman -Syu git github-cli vi neovim tmux nodejs npm php composer python starship zoxide fzf fd ripgrep
+sudo pacman -Syu gcc git github-cli lazygit vi neovim tmux nodejs npm php composer python starship zoxide fzf fd ripgrep
 ```
