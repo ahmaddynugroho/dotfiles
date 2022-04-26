@@ -16,7 +16,7 @@ alias S="sudo"
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
 alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
-alias ch="chezmoi"
+alias v="lazygit"
 
 # dir
 alias l="ls --color"
