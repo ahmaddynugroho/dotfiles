@@ -19,6 +19,7 @@ alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
 alias v="lazygit"
 alias n="nvim"
+alias ni="nvim ~/dotfiles/nvim/init.lua"
 
 # Yay
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
