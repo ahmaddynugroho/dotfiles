@@ -4,7 +4,6 @@ local g = vim.g
 local o, wo, bo = vim.o, vim.wo, vim.bo
 local utils = require 'utils'
 local opt = utils.opt
-local map = utils.map
 
 -- Skip some remote provider loading
 g.loaded_python_provider = 0
@@ -14,25 +13,15 @@ g.node_host_prog = '/usr/bin/neovim-node-host'
 
 -- Disable some built-in plugins we don't want
 local disabled_built_ins = {
-  'gzip',
-  'man',
-  'matchit',
-  'matchparen',
-  'shada_plugin',
-  'tarPlugin',
-  'tar',
-  'zipPlugin',
-  'zip',
-  'netrwPlugin',
+    'gzip', 'man', 'matchit', 'matchparen', 'shada_plugin', 'tarPlugin', 'tar',
+    'zipPlugin', 'zip', 'netrwPlugin'
 }
 
-for i = 1, 10 do
-  g['loaded_' .. disabled_built_ins[i]] = 1
-end
+for i = 1, 10 do g['loaded_' .. disabled_built_ins[i]] = 1 end
 
 -- Settings
-local buffer = { o, bo }
-local window = { o, wo }
+local buffer = {o, bo}
+local window = {o, wo}
 vim.o.hlsearch = false
 opt('textwidth', 100, buffer)
 opt('scrolloff', 7)

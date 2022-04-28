@@ -11,6 +11,7 @@ source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 
 # System
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export EDITOR="nvim"
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
 alias sudo="sudo "
