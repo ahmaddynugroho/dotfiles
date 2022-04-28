@@ -13,4 +13,7 @@ sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
+corepack enable
+corepack prepare pnpm@7.0.0-rc.9 --activate
+sudo pnpm add -g prettierd
 ```
