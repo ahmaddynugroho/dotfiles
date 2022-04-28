@@ -15,6 +15,18 @@ require('telescope').load_extension('fzy_native')
 -- lsp-installer
 require("nvim-lsp-installer").setup {}
 
+-- tree-sitter
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "javascript", 
+    "typescript", "go", "html", "json", "php" },
+  sync_install = false,
+  -- ignore_install = { "javascript" },
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+  },
+}
+
 -- cokeline
 local get_hex = require('cokeline/utils').get_hex
 require('cokeline').setup({
