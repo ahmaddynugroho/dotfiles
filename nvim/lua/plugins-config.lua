@@ -18,7 +18,7 @@ require("nvim-lsp-installer").setup {}
 -- tree-sitter
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "c", "lua", "javascript", "typescript", "go", "html", "json", "php"
+        "c", "lua", "javascript", "typescript", "go", "html", "json"
     },
     sync_install = false,
     -- ignore_install = { "javascript" },

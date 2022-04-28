@@ -68,4 +68,5 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'williamboman/nvim-lsp-installer'
     use 'sbdchd/neoformat'
+    use 'TysonAndre/php-vim-syntax'
 end)
