@@ -40,6 +40,10 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup() end
     }
+    use {
+        "folke/which-key.nvim",
+        config = function() require("which-key").setup() end
+    }
 
     -- BUFFER EXPERIENCE
     use 'unblevable/quick-scope'
