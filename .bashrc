@@ -12,11 +12,19 @@ source /usr/share/fzf/key-bindings.bash
 
 # System
 export EDITOR="nvim"
-alias S="sudo"
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
+alias sudo="sudo "
+alias S="sudo "
 alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
 alias v="lazygit"
+alias n="nvim"
+
+# Yay
+alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
+alias y="yay"
+alias ys="yay -S"
+alias yss="yay -Ss"
 
 # dir
 alias l="ls --color"
@@ -35,31 +43,6 @@ mkcdir() {
 
 # nodejs
 alias p="pnpm"
-
-# ultralist
-alias u="ultralist"
-alias ul="ultralist l"
-alias ulc="script -qc \"ultralist l\" < /dev/null | sort -t @ -k 2,2"
-alias ulp="script -qc \"ultralist l\" < /dev/null | sort -t + -k 2,2"
-alias uf="script -qc \"ultralist l\" < /dev/null | fzf --ansi"
-alias uc="ultralist l due:agenda group:context"
-alias up="ultralist l due:agenda group:project"
-alias tod="ultralist l group:project due:tod"
-alias tom="ultralist l group:project due:tom"
-alias mon="ultralist l group:project due:mon"
-alias tue="ultralist l group:project due:tue"
-alias wed="ultralist l group:project due:wed"
-alias thu="ultralist l group:project due:thu"
-alias fri="ultralist l group:project due:fri"
-alias sat="ultralist l group:project due:sat"
-alias sun="ultralist l group:project due:sun"
-alias c="ultralist l completed:tod"
-
-# exercism
-alias exercism="ex"
-exd() {
-  ex download -e "$1" -t "$2"
-}
 
 # zoxide
 eval "$(zoxide init bash)"
