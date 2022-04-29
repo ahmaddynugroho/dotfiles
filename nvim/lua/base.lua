@@ -63,4 +63,4 @@ opt('signcolumn', 'yes:1', window)
 -- Colorscheme
 opt('termguicolors', true)
 opt('background', 'dark')
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme kanagawa]]
