@@ -12,6 +12,8 @@ map('i', 'kj', '<ESC>', {noremap = true})
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
+local toggleterm = [[<C-\>]]
+
 wk.register({
     ['<leader>q'] = {'<cmd>qa<cr>', 'Close all'},
     ['<leader>x'] = {'<cmd>bd<cr>', 'Close this buffer'},
@@ -47,7 +49,7 @@ wk.register({
         q = {'<cmd>lua vim.diagnostic.setloclist()<CR>', 'setloclist'}
     }
 }, {silent = true})
-Lspconfig_on_attach = function(_, bufnr)
+local lspconfig_oa = function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     wk.register({
         ['<leader>l'] = {
@@ -79,3 +81,5 @@ Lspconfig_on_attach = function(_, bufnr)
         }
     }, {silet = true})
 end
+
+Keybindings = {lspconfig_oa = lspconfig_oa, toggleterm = toggleterm}

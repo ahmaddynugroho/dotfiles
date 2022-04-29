@@ -5,6 +5,13 @@ vim.cmd [[highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81
 -- autopairs
 require('nvim-autopairs').setup {}
 
+-- toggleterm
+require('toggleterm').setup {
+  open_mapping = Keybindings.toggleterm,
+  start_in_insert = true,
+  direction = 'float'
+}
+
 -- lualine
 require('lualine').setup {}
 
@@ -116,7 +123,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
 
 -- lspconfig
 local servers = {'tsserver', 'intelephense'}
-local on_attach = Lspconfig_on_attach
+local on_attach = Keybindings.lspconfig_oa
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
         on_attach = on_attach,
