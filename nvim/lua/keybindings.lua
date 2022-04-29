@@ -13,6 +13,14 @@ map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
 local toggleterm = [[<C-\>]]
+wk.register({
+    ['<leader>g'] = {
+        function() Terminal.lazygit:toggle(20, 'float') end, 'Lazygit'
+    },
+    ['<leader>n'] = {
+        function() Terminal.nvim:toggle(20, 'float') end, 'Edit neovim config'
+    }
+}, {noremap = true, silent = true})
 
 wk.register({
     ['<leader>q'] = {'<cmd>qa<cr>', 'Close all'},

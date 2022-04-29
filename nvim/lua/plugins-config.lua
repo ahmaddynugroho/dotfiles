@@ -6,10 +6,23 @@ vim.cmd [[highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81
 require('nvim-autopairs').setup {}
 
 -- toggleterm
+local terminal_factory = require('toggleterm.terminal').Terminal
 require('toggleterm').setup {
-  open_mapping = Keybindings.toggleterm,
-  start_in_insert = true,
-  direction = 'float'
+    open_mapping = Keybindings.toggleterm,
+    direction = 'float'
+}
+Terminal = {
+    bash = terminal_factory:new({start_in_insert = true}),
+    lazygit = terminal_factory:new({
+        dir = 'git_dir',
+        cmd = 'lazygit',
+        hidden = true
+    }),
+    nvim = terminal_factory:new({
+        dir = '~/dotfiles/nvim/',
+        cmd = 'nvim',
+        hidden = true
+    })
 }
 
 -- lualine
