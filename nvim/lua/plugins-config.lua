@@ -135,7 +135,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .make_client_capabilities())
 
 -- lspconfig
-local servers = {'tsserver', 'intelephense'}
+local servers = {'tsserver', 'intelephense', 'emmet_ls'}
 local on_attach = Keybindings.lspconfig_oa
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
