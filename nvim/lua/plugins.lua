@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     -- UI STUFF
     use 'ellisonleao/gruvbox.nvim'
     use 'rebelot/kanagawa.nvim'
+    use 'folke/tokyonight.nvim'
     use 'noib3/nvim-cokeline'
     use 'akinsho/toggleterm.nvim'
     use {

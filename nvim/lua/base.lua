@@ -62,5 +62,6 @@ opt('signcolumn', 'yes:1', window)
 
 -- Colorscheme
 opt('termguicolors', true)
-opt('background', 'dark')
-vim.cmd [[colorscheme kanagawa]]
+vim.g.tokyonight_style = 'night'
+vim.g.tokyonight_terminal_colors = false
+vim.cmd [[colorscheme tokyonight]]

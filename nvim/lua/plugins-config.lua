@@ -26,7 +26,7 @@ Terminal = {
 }
 
 -- lualine
-require('lualine').setup {}
+require('lualine').setup {options = {theme = 'tokyonight'}}
 
 -- telescope
 require('telescope')
