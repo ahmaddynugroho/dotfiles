@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'windwp/nvim-autopairs'
     use 'jeetsukumaran/vim-indentwise'
+    use 'b3nj5m1n/kommentary'
 
     -- FUZZY/TREESITTER STUFF
     use 'nvim-telescope/telescope-fzy-native.nvim'

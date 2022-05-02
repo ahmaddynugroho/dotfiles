@@ -5,6 +5,9 @@ vim.cmd [[highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81
 -- autopairs
 require('nvim-autopairs').setup {}
 
+-- kommentary
+require('kommentary.config').use_extended_mappings()
+
 -- toggleterm
 local terminal_factory = require('toggleterm.terminal').Terminal
 require('toggleterm').setup {
@@ -135,7 +138,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .make_client_capabilities())
 
 -- lspconfig
-local servers = {'tsserver', 'intelephense', 'emmet_ls'}
+local servers = {'tsserver', 'intelephense', 'html', 'cssls'}
 local on_attach = Keybindings.lspconfig_oa
 for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
