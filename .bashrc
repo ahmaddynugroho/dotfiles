@@ -11,7 +11,6 @@ source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 
 # System
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export EDITOR="nvim"
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
 alias sudo="sudo "
@@ -21,6 +20,11 @@ alias bs="source ~/.bashrc"
 alias v="lazygit"
 alias n="nvim"
 alias ni="nvim ~/dotfiles/nvim/init.lua"
+
+# Path
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # Yay
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
