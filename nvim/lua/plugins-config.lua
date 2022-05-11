@@ -1,3 +1,6 @@
+-- sort.nvim
+require("sort").setup()
+
 -- tabout
 require("tabout").setup({})
 

@@ -61,6 +61,7 @@ return require("packer").startup(function(use)
 	use("jeetsukumaran/vim-indentwise")
 	use("b3nj5m1n/kommentary")
 	use("abecodes/tabout.nvim")
+	use("sQVe/sort.nvim")
 
 	-- FUZZY/TREESITTER STUFF
 	use("nvim-telescope/telescope-fzy-native.nvim")
