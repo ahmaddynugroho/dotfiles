@@ -1,7 +1,7 @@
-require('impatient')
+require("impatient")
 
-require('base')
-require('keybindings')
+require("base")
+require("keybindings")
 
-require('plugins')
-require('plugins-config')
+require("plugins")
+require("plugins-config")
