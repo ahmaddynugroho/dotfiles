@@ -57,6 +57,9 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+-- nvim-treesitter-context
+require("treesitter-context").setup()
+
 -- cokeline
 local get_hex = require("cokeline/utils").get_hex
 require("cokeline").setup({

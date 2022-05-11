@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
 	use("nvim-telescope/telescope-fzy-native.nvim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use 'romgrk/nvim-treesitter-context'
 
 	-- LSP/COMPLETION STUFF
 	use("neovim/nvim-lspconfig")
