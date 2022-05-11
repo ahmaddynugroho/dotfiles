@@ -1,3 +1,8 @@
+-- gitsigns
+require("gitsigns").setup({
+    on_attach = Keybindings.gitsigns_oa
+})
+
 -- sort.nvim
 require("sort").setup()
 

@@ -97,4 +97,75 @@ local lspconfig_oa = function(_, bufnr)
 	}, { silet = true })
 end
 
-Keybindings = { lspconfig_oa = lspconfig_oa, toggleterm = toggleterm }
+local gitsigns_oa = function(bufnr)
+	local gs = package.loaded.gitsigns
+
+	local function _map(mode, l, r, opts)
+		opts = opts or {}
+		opts.buffer = bufnr
+		vim.keymap.set(mode, l, r, opts)
+	end
+
+	_map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+
+	-- Navigation
+	_map("n", "]c", function()
+		if vim.wo.diff then
+			return "]c"
+		end
+		vim.schedule(function()
+			gs.next_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
+
+	_map("n", "[c", function()
+		if vim.wo.diff then
+			return "[c"
+		end
+		vim.schedule(function()
+			gs.prev_hunk()
+		end)
+		return "<Ignore>"
+	end, { expr = true })
+
+	-- Actions
+	wk.register({
+		["<leader>h"] = {
+			name = "+hunk ops",
+			s = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
+			r = { ":Gitsigns reset_hunk<CR>", "Reset hunk" },
+			S = { gs.stage_buffer, "Stage buffer" },
+			u = { gs.undo_stage_hunk, "Undo stage hunk" },
+			R = { gs.reset_buffer, "Reset buffer" },
+			p = { gs.preview_hunk, "Preview hunk" },
+			b = {
+				function()
+					gs.blame_line({ full = true })
+				end,
+				"Blame line",
+			},
+			d = { gs.diffthis, "Diff this" },
+			D = {
+				function()
+					gs.diffthis("~")
+				end,
+				"Diff",
+			},
+		},
+		["<leader>t"] = {
+			name = "+gitsigns toggle",
+			b = { gs.toggle_current_line_blame, "Toggle curent line blame" },
+			d = { gs.toggle_deleted, "Toggle deleted" },
+		},
+	})
+	wk.register({
+		["<leader>h"] = {
+			name = "+hunk ops",
+			s = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
+			r = { ":Gitsigns reset_hunk<CR>", "Reset hunk" },
+		},
+	}, { mode = "v" })
+end
+
+Keybindings = { lspconfig_oa = lspconfig_oa, toggleterm = toggleterm, gitsigns_oa = gitsigns_oa }

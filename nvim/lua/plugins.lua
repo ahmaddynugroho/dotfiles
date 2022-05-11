@@ -41,12 +41,6 @@ return require("packer").startup(function(use)
 		},
 	})
 	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	})
-	use({
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
@@ -54,6 +48,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- BUFFER EXPERIENCE
+	use("lewis6991/gitsigns.nvim")
 	use("unblevable/quick-scope")
 	use("ggandor/lightspeed.nvim")
 	use("tpope/vim-surround")
