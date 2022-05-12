@@ -58,10 +58,10 @@ wk.register({
 	["<leader>d"] = {
 		name = "+diagnostic",
 		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float" },
-		["["] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous" },
-		["]"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next" },
 		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "setloclist" },
 	},
+	["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic" },
+	["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
 }, { silent = true })
 local lspconfig_oa = function(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
