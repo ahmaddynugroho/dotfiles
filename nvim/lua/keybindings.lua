@@ -59,7 +59,7 @@ wk.register({
 		name = "+diagnostic",
 		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float" },
 		["["] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous" },
-		["]"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Next" },
+		["]"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next" },
 		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "setloclist" },
 	},
 }, { silent = true })

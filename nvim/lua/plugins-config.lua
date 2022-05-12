@@ -46,9 +46,6 @@ require("lualine").setup({ options = { theme = "tokyonight" } })
 require("telescope")
 require("telescope").load_extension("fzy_native")
 
--- lsp-installer
-require("nvim-lsp-installer").setup({})
-
 -- tree-sitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
@@ -162,6 +159,10 @@ cmp.setup({
 		{ name = "path" },
 	}),
 })
+
+-- lsp-installer
+require("nvim-lsp-installer").setup({})
+
 -- ADD capabilities to lspconfig!
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
