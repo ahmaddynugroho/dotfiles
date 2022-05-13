@@ -55,27 +55,13 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("jeetsukumaran/vim-indentwise")
 	use("b3nj5m1n/kommentary")
-	use("abecodes/tabout.nvim")
 	use("sQVe/sort.nvim")
+    use("wellle/context.vim")
 
 	-- FUZZY/TREESITTER STUFF
 	use("nvim-telescope/telescope-fzy-native.nvim")
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
-	use("romgrk/nvim-treesitter-context")
 
-	-- LSP/COMPLETION STUFF
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/nvim-cmp")
-	use("rafamadriz/friendly-snippets")
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("williamboman/nvim-lsp-installer")
-	use("sbdchd/neoformat")
-
-	-- LANGUAGE SPECIFIC
-	use("TysonAndre/php-vim-syntax")
+    -- LSP
+    use {'neoclide/coc.nvim', branch = 'release'}
 end)

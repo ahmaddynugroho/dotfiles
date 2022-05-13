@@ -1,7 +1,7 @@
 local map = require("utils").map
 local wk = require("which-key")
 
-vim.g.mapleader = [[ ]]
+vim.g.mapleader = [[,]]
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
 map("", "<f1>", "<cmd>FloatermToggle<cr>") -- Disable annoying F1 binding
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -53,49 +53,6 @@ wk.register({
 		h = { "<CMD>lua require('telescope.builtin').help_tags()<CR>", "Tags" },
 	},
 }, { silent = true })
-
-wk.register({
-	["<leader>d"] = {
-		name = "+diagnostic",
-		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float" },
-		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "setloclist" },
-	},
-	["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic" },
-	["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
-}, { silent = true })
-local lspconfig_oa = function(_, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	wk.register({
-		["<leader>l"] = {
-			name = "+lsp",
-			D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
-			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
-			t = {
-				"<cmd>lua vim.lsp.buf.type_definition()<CR>",
-				"Type definition",
-			},
-			K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-			i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-			k = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
-			w = {
-				name = "+workspace",
-				a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add" },
-				r = {
-					"<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-					"Remove",
-				},
-				l = {
-					"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-					"List",
-				},
-			},
-			r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-			c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-			e = { "<cmd>lua vim.lsp.buf.references()<CR>", "References" },
-			f = { "<cmd>Neoformat<CR>", "Neoformat" },
-		},
-	}, { silet = true })
-end
 
 local gitsigns_oa = function(bufnr)
 	local gs = package.loaded.gitsigns
@@ -168,4 +125,4 @@ local gitsigns_oa = function(bufnr)
 	}, { mode = "v" })
 end
 
-Keybindings = { lspconfig_oa = lspconfig_oa, toggleterm = toggleterm, gitsigns_oa = gitsigns_oa }
+Keybindings = { toggleterm = toggleterm, gitsigns_oa = gitsigns_oa }
