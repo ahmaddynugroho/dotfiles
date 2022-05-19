@@ -41,7 +41,7 @@ require("lualine").setup({ options = { theme = "tokyonight" } })
 
 -- telescope
 require("telescope")
-require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("fzf")
 
 -- cokeline
 local get_hex = require("cokeline/utils").get_hex

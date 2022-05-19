@@ -59,7 +59,7 @@ return require("packer").startup(function(use)
     use("wellle/context.vim")
 
 	-- FUZZY/TREESITTER STUFF
-	use("nvim-telescope/telescope-fzy-native.nvim")
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 
     -- LSP
