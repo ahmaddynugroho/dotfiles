@@ -72,7 +72,7 @@ require("gitsigns").setup({
 	end,
 })
 
-c([[nnoremap \ :NeoTreeFloatToggle<CR>]])
+c([[nnoremap \ :NeoTreeRevealToggle<CR>]])
 
 c([[
     inoremap <silent><expr> <TAB>
