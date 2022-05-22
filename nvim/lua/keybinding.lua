@@ -5,6 +5,10 @@ require("nvim-autopairs").setup({})
 
 vim.g.mapleader = ","
 
+c[[nnoremap <leader>q :q<CR>]]
+c[[nnoremap <leader>w :w<CR>]]
+c[[nnoremap <leader>x :bd<CR>]]
+
 c[[inoremap jk <ESC>]]
 c[[inoremap kj <ESC>]]
 
@@ -119,7 +123,6 @@ c([[
     nmap <leader>a  <Plug>(coc-codeaction-selected)
 
     nmap <leader>ac  <Plug>(coc-codeaction)
-    nmap <leader>qf  <Plug>(coc-fix-current)
 
     nmap <leader>cl  <Plug>(coc-codelens-action)
 
@@ -148,6 +151,7 @@ c([[
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
     command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
+    nmap <space>q  <Plug>(coc-fix-current)
     nnoremap <silent><nowait> <space>a  :Telescope coc diagnostics<CR>
     nnoremap <silent><nowait> <space>A  :Telescope coc workspace_diagnostics<CR>
     nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>

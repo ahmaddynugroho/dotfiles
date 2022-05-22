@@ -1,4 +1,5 @@
 {
   "sumneko-lua.enableNvimLuaDev": true,
-  "stylua.styluaPath": "/usr/sbin/stylua"
+  "stylua.styluaPath": "/usr/sbin/stylua",
+  "Lua.telemetry.enable": false
 }
