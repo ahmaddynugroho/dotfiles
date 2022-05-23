@@ -1,4 +1,5 @@
-require('plugins')
-require('base')
-require('coc')
-require('keybinding')
+require("impatient")
+
+require("plugins")
+require("base")
+require("keybinding")

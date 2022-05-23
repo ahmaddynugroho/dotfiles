@@ -1,5 +1,12 @@
 {
-  "sumneko-lua.enableNvimLuaDev": true,
-  "stylua.styluaPath": "/usr/sbin/stylua",
-  "Lua.telemetry.enable": false
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
+
+    "sumneko-lua.enableNvimLuaDev": true,
+    "stylua.styluaPath": "/usr/sbin/stylua",
+    "Lua.telemetry.enable": false,
+
+    "prettier.trailingComma": "es5",
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.singleQuote": true
 }
