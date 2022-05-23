@@ -5,12 +5,12 @@ require("nvim-autopairs").setup({})
 
 vim.g.mapleader = ","
 
-c[[nnoremap <leader>q :q<CR>]]
-c[[nnoremap <leader>w :w<CR>]]
-c[[nnoremap <leader>x :bd<CR>]]
+c([[nnoremap <leader>q :q<CR>]])
+c([[nnoremap <leader>w :w<CR>]])
+c([[nnoremap <leader>x :bd<CR>]])
 
-c[[inoremap jk <ESC>]]
-c[[inoremap kj <ESC>]]
+c([[inoremap jk <ESC>]])
+c([[inoremap kj <ESC>]])
 
 c([[
     nnoremap <leader>f <cmd>Telescope fd<cr>
