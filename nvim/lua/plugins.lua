@@ -28,6 +28,32 @@ return require("packer").startup(function(use)
 	use({ "neoclide/coc.nvim", branch = "release" })
 	use("folke/which-key.nvim")
 	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("transparent").setup({
+				enable = true,
+			})
+		end,
+	})
+	use({
+		"p00f/nvim-ts-rainbow",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+		},
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "lua", "typescript", "javascript", "php" },
+				sync_install = true,
+				rainbow = {
+					enable = true,
+					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+					max_file_lines = 700, -- Do not enable for files with more than n lines, int
+				},
+			})
+		end,
+	})
+	use({
 		"fannheyward/telescope-coc.nvim",
 		requires = {
 			"nvim-telescope/telescope.nvim",
