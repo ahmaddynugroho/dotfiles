@@ -8,6 +8,8 @@ vim.g.mapleader = " "
 c([[inoremap jk <ESC>]])
 c([[inoremap kj <ESC>]])
 
+c([[nnoremap \ :NeoTreeRevealToggle<CR>]])
+
 c([[nmap s <cmd>Pounce<CR>
 nmap S <cmd>PounceRepeat<CR>
 vmap s <cmd>Pounce<CR>
@@ -24,6 +26,21 @@ wk.register({
 		r = { ":Telescope grep_string<CR>", "Grep string" },
 		b = { ":Telescope buffers<CR>", "Buffers" },
 		o = { ":Telescope oldfiles<CR>", "Recent files" },
+	},
+})
+
+wk.register({
+	["<leader>l"] = {
+		name = "+lsp (coc)",
+		d = { ":Telescope coc diagnostics<CR>", "Diagnostics" },
+		D = { ":Telescope coc workspace_diagnostics<CR>", "Workspace diagnostics" },
+		e = { ":<C-u>CocList extensions<cr>", "Extensions" },
+		c = { ":Telescope coc commands<CR>", "Commands" },
+		s = { ":Telescope coc document_symbols<CR>", "Document symbols" },
+		S = { ":Telescope coc workspace_symbols<CR>", "Workspace symbols" },
+		j = { ":<C-u>CocNext<CR>", "Next" },
+		k = { ":<C-u>CocPrev<CR>", "Prev" },
+		p = { ":Telescope resume<CR>", "Resume last list" },
 	},
 })
 
@@ -58,29 +75,39 @@ require("gitsigns").setup({
 			return "<Ignore>"
 		end, { expr = true })
 
-		-- Actions
+		wk.register({
+			["<leader>h"] = {
+				name = "+hunk operation",
+				S = { gs.stage_buffer, "Stage buffer" },
+				u = { gs.undo_stage_hunk, "Undo stage hunk" },
+				R = { gs.reset_buffer, "Reset buffer" },
+				p = { gs.preview_hunk, "Preview hunk" },
+				b = {
+					function()
+						gs.blame_line({ full = true })
+					end,
+					"Blame line",
+				},
+				d = { gs.diffthis, "Diff this" },
+				D = {
+					function()
+						gs.diffthis("~")
+					end,
+					"Diff buffer",
+				},
+			},
+			["<leader>t"] = {
+				name = "+hunk toggle",
+				b = { gs.toggle_current_line_blame, "Toggle line blame" },
+				d = { gs.toggle_deleted, "Toggle deleted" },
+			},
+		})
+
 		map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-		map("n", "<leader>hS", gs.stage_buffer)
-		map("n", "<leader>hu", gs.undo_stage_hunk)
-		map("n", "<leader>hR", gs.reset_buffer)
-		map("n", "<leader>hp", gs.preview_hunk)
-		map("n", "<leader>hb", function()
-			gs.blame_line({ full = true })
-		end)
-		map("n", "<leader>tb", gs.toggle_current_line_blame)
-		map("n", "<leader>hd", gs.diffthis)
-		map("n", "<leader>hD", function()
-			gs.diffthis("~")
-		end)
-		map("n", "<leader>td", gs.toggle_deleted)
-
-		-- Text object
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 	end,
 })
-
-c([[nnoremap \ :NeoTreeRevealToggle<CR>]])
 
 c([[
     inoremap <silent><expr> <TAB>
@@ -117,15 +144,15 @@ c([[
     endfunction
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    nmap <leader>lrn <Plug>(coc-rename)
+    nmap <leader>lr <Plug>(coc-rename)
+    nmap <leader>la  <Plug>(coc-codeaction)
+    nmap <leader>lq  <Plug>(coc-fix-current)
 
     augroup mygroup
       autocmd!
       autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
       autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
-
-    nmap <leader>ac  <Plug>(coc-codeaction)
 
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
@@ -151,15 +178,4 @@ c([[
     command! -nargs=0 Format :call CocActionAsync('format')
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
     command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-
-    nmap <leader>lq  <Plug>(coc-fix-current)
-    nnoremap <silent><nowait> <leader>la  :Telescope coc diagnostics<CR>
-    nnoremap <silent><nowait> <leader>lA  :Telescope coc workspace_diagnostics<CR>
-    nnoremap <silent><nowait> <leader>le  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <leader>lc  :Telescope coc commands<CR>
-    nnoremap <silent><nowait> <leader>lo  :Telescope coc document_symbols<CR>
-    nnoremap <silent><nowait> <leader>ls  :Telescope coc workspace_symbols<CR>
-    nnoremap <silent><nowait> <leader>lj  :<C-u>CocNext<CR>
-    nnoremap <silent><nowait> <leader>lk  :<C-u>CocPrev<CR>
-    nnoremap <silent><nowait> <leader>lp  :<C-u>CocListResume<CR>
 ]])
