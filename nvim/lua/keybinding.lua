@@ -3,7 +3,7 @@ local wk = require("which-key")
 wk.setup({})
 require("nvim-autopairs").setup({})
 
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 c([[nnoremap <leader>q :q<CR>]])
 c([[nnoremap <leader>w :w<CR>]])
@@ -117,12 +117,7 @@ c([[
       autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
 
-    xmap <leader>a  <Plug>(coc-codeaction-selected)
-    nmap <leader>a  <Plug>(coc-codeaction-selected)
-
     nmap <leader>ac  <Plug>(coc-codeaction)
-
-    nmap <leader>cl  <Plug>(coc-codelens-action)
 
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
@@ -149,14 +144,14 @@ c([[
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
     command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-    nmap <space>q  <Plug>(coc-fix-current)
-    nnoremap <silent><nowait> <space>a  :Telescope coc diagnostics<CR>
-    nnoremap <silent><nowait> <space>A  :Telescope coc workspace_diagnostics<CR>
-    nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-    nnoremap <silent><nowait> <space>c  :Telescope coc commands<CR>
-    nnoremap <silent><nowait> <space>o  :Telescope coc document_symbols<CR>
-    nnoremap <silent><nowait> <space>s  :Telescope coc workspace_symbols<CR>
-    nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-    nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-    nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+    nmap <leader>lq  <Plug>(coc-fix-current)
+    nnoremap <silent><nowait> <leader>la  :Telescope coc diagnostics<CR>
+    nnoremap <silent><nowait> <leader>lA  :Telescope coc workspace_diagnostics<CR>
+    nnoremap <silent><nowait> <leader>le  :<C-u>CocList extensions<cr>
+    nnoremap <silent><nowait> <leader>lc  :Telescope coc commands<CR>
+    nnoremap <silent><nowait> <leader>lo  :Telescope coc document_symbols<CR>
+    nnoremap <silent><nowait> <leader>ls  :Telescope coc workspace_symbols<CR>
+    nnoremap <silent><nowait> <leader>lj  :<C-u>CocNext<CR>
+    nnoremap <silent><nowait> <leader>lk  :<C-u>CocPrev<CR>
+    nnoremap <silent><nowait> <leader>lp  :<C-u>CocListResume<CR>
 ]])
