@@ -5,20 +5,23 @@ require("nvim-autopairs").setup({})
 
 vim.g.mapleader = " "
 
-c([[nnoremap <leader>q :q<CR>]])
-c([[nnoremap <leader>w :w<CR>]])
-c([[nnoremap <leader>x :bd<CR>]])
-
 c([[inoremap jk <ESC>]])
 c([[inoremap kj <ESC>]])
 
-c([[
-    nnoremap <leader>f <cmd>Telescope fd<cr>
-    nnoremap <leader>g <cmd>Telescope live_grep<cr>
-    nnoremap <leader>r <cmd>Telescope grep_string<cr>
-    nnoremap <leader>b <cmd>Telescope buffers<cr>
-    nnoremap <leader>o <cmd>Telescope oldfiles<cr>
-]])
+
+wk.register({
+	["<leader>"] = {
+		q = { ":q<CR>", "Quit" },
+		w = { ":w<CR>", "Save" },
+		x = { ":bd<CR>", "Close buffer" },
+
+		f = { ":Telescope fd<CR>", "Files" },
+		g = { ":Telescope live_grep<CR>", "Grep live" },
+		r = { ":Telescope grep_string<CR>", "Grep string" },
+		b = { ":Telescope buffers<CR>", "Buffers" },
+		o = { ":Telescope oldfiles<CR>", "Recent files" },
+	},
+})
 
 require("gitsigns").setup({
 	on_attach = function(bufnr)
