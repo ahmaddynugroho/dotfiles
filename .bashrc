@@ -18,7 +18,7 @@ alias S="sudo "
 alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
 alias v="lazygit"
-alias n="nvim"
+alias a="nvim"
 alias ni="nvim ~/dotfiles/nvim/init.lua"
 
 # Path
