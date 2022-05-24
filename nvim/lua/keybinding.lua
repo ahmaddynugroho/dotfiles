@@ -15,6 +15,7 @@ c([[inoremap kj <ESC>]])
 c([[
     nnoremap <leader>f <cmd>Telescope fd<cr>
     nnoremap <leader>g <cmd>Telescope live_grep<cr>
+    nnoremap <leader>r <cmd>Telescope grep_string<cr>
     nnoremap <leader>b <cmd>Telescope buffers<cr>
     nnoremap <leader>o <cmd>Telescope oldfiles<cr>
 ]])
@@ -109,7 +110,7 @@ c([[
     endfunction
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    nmap <leader>rn <Plug>(coc-rename)
+    nmap <leader>lrn <Plug>(coc-rename)
 
     augroup mygroup
       autocmd!
