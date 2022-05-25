@@ -21,27 +21,22 @@ return require("packer").startup(function(use)
 	use("rlane/pounce.nvim")
 	use("tpope/vim-surround")
 	use("jeetsukumaran/vim-indentwise")
-	use("b3nj5m1n/kommentary")
 	use("sQVe/sort.nvim")
 	use("wellle/context.vim")
 	use("windwp/nvim-autopairs")
 	use({ "neoclide/coc.nvim", branch = "release" })
 	use("folke/which-key.nvim")
 	use({
-		"xiyaowong/nvim-transparent",
-		config = function()
-			require("transparent").setup({
-				enable = true,
-			})
-		end,
-	})
-	use({
 		"p00f/nvim-ts-rainbow",
 		requires = {
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
+			"numToStr/Comment.nvim",
+			{
+				"nvim-treesitter/nvim-treesitter",
+				run = ":TSUpdate",
+			},
 		},
 		config = function()
+			require("Comment").setup()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "lua", "typescript", "javascript", "php" },
 				sync_install = true,
