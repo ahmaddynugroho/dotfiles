@@ -1,7 +1,9 @@
+MUtils = {}
 local c = vim.cmd
 local wk = require("which-key")
 wk.setup({})
-require("nvim-autopairs").setup({})
+local npairs = require("nvim-autopairs")
+npairs.setup({ map_cr = false })
 
 vim.g.mapleader = " "
 
@@ -41,6 +43,15 @@ wk.register({
 		j = { ":<C-u>CocNext<CR>", "Next" },
 		k = { ":<C-u>CocPrev<CR>", "Prev" },
 		p = { ":Telescope resume<CR>", "Resume last list" },
+		r = { "<Plug>(coc-rename)", "Rename", noremap = false },
+		a = { "<Plug>(coc-codeaction)", "Code action", noremap = false },
+		q = { "<Plug>(coc-fix-current)", "Fix current", noremap = false },
+	},
+	g = {
+		d = { "<Plug>(coc-definition)", "Go to definition", noremap = false },
+		y = { "<Plug>(coc-type-definition)", "Go to type definition", noremap = false },
+		i = { "<Plug>(coc-implementation)", "Go to implementation", noremap = false },
+		r = { ":Telescope coc references<CR>", "List references", noremap = false },
 	},
 })
 
@@ -109,12 +120,31 @@ require("gitsigns").setup({
 	end,
 })
 
+vim.keymap.set("i", "<TAB>", function()
+	if vim.fn.pumvisible() then
+		return "<C-n>"
+	elseif vim.fn.CheckBackspace() then
+		return "<TAB>"
+	else
+		vim.fn["coc#refresh"]()
+	end
+end, { expr = true, noremap = true, silent = true })
+
+vim.keymap.set("i", "<S-TAB>", function()
+	return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-h>"
+end, { expr = true, noremap = true, silent = true })
+
+_G.MUtils.completion_confirm = function()
+	if vim.fn.pumvisible() ~= 0 then
+		return vim.fn["coc#_select_confirm"]()
+	else
+		return npairs.autopairs_cr()
+	end
+end
+
+vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })
+
 c([[
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ CheckBackspace() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! CheckBackspace() abort
       let col = col('.') - 1
@@ -123,16 +153,10 @@ c([[
 
     inoremap <silent><expr> <c-space> coc#refresh()
 
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     nmap <silent> [g <Plug>(coc-diagnostic-prev)
     nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr :Telescope coc references<CR>
 
     nnoremap <silent> K :call ShowDocumentation()<CR>
     function! ShowDocumentation()
@@ -144,9 +168,6 @@ c([[
     endfunction
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    nmap <leader>lr <Plug>(coc-rename)
-    nmap <leader>la  <Plug>(coc-codeaction)
-    nmap <leader>lq  <Plug>(coc-fix-current)
 
     augroup mygroup
       autocmd!
