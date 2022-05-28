@@ -120,20 +120,6 @@ require("gitsigns").setup({
 	end,
 })
 
-vim.keymap.set("i", "<TAB>", function()
-	if vim.fn.pumvisible() then
-		return "<C-n>"
-	elseif vim.fn.CheckBackspace() then
-		return "<TAB>"
-	else
-		vim.fn["coc#refresh"]()
-	end
-end, { expr = true, noremap = true, silent = true })
-
-vim.keymap.set("i", "<S-TAB>", function()
-	return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-h>"
-end, { expr = true, noremap = true, silent = true })
-
 _G.MUtils.completion_confirm = function()
 	if vim.fn.pumvisible() ~= 0 then
 		return vim.fn["coc#_select_confirm"]()
@@ -145,6 +131,11 @@ end
 vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })
 
 c([[
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ CheckBackspace() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! CheckBackspace() abort
       let col = col('.') - 1
