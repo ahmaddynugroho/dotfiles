@@ -8,5 +8,7 @@
     "prettier.trailingComma": "es5",
     "prettier.tabWidth": 4,
     "prettier.semi": false,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+
+    "intelephense.environment.phpVersion": "7.3"
 }

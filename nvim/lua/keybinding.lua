@@ -28,6 +28,12 @@ wk.register({
 		r = { ":Telescope grep_string<CR>", "Grep string" },
 		b = { ":Telescope buffers<CR>", "Buffers" },
 		o = { ":Telescope oldfiles<CR>", "Recent files" },
+		["/"] = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fzf" },
+		s = {
+			name = "+set",
+			h = { ":set ft=html<CR>", "Set ft html" },
+			p = { ":set ft=php<CR>", "Set ft php" },
+		},
 	},
 })
 

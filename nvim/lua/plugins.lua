@@ -26,17 +26,16 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use({ "neoclide/coc.nvim", branch = "release" })
 	use("folke/which-key.nvim")
+	use("b3nj5m1n/kommentary")
 	use({
 		"p00f/nvim-ts-rainbow",
 		requires = {
-			"numToStr/Comment.nvim",
 			{
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
 			},
 		},
 		config = function()
-			require("Comment").setup()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "lua", "typescript", "javascript", "php" },
 				sync_install = true,

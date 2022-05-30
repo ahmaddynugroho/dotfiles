@@ -2,6 +2,7 @@ vim.opt.termguicolors = true
 vim.g.tokyonight_style = 'night'
 vim.cmd[[colorscheme tokyonight]]
 
+vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
