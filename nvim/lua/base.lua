@@ -3,6 +3,7 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_transparent = true
 vim.cmd([[colorscheme tokyonight]])
 
+vim.opt.shortmess = "I"
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
