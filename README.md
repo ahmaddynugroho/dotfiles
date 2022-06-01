@@ -15,7 +15,7 @@ cd yay-bin
 makepkg -si
 sudo npm i -g pnpm
 
-# lsp/null-ls
-sudo pacman -S stylua
+# lsp
+sudo pacman -S lua-language-server stylua
 sudo pnpm add -g typescript typescript-language-server intelephense emmet-ls prettier @fsouza/prettierd
 ```
