@@ -1,199 +1,180 @@
-MUtils = {}
-local c = vim.cmd
+local set = vim.keymap.set
 local wk = require("which-key")
-wk.setup({})
-local npairs = require("nvim-autopairs")
-npairs.setup({ map_cr = false })
+local luasnip = require("luasnip")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 vim.g.mapleader = " "
 
-c([[inoremap jk <ESC>]])
-c([[inoremap kj <ESC>]])
+set('i', 'jk', '<ESC>')
+set('i', 'kj', '<ESC>')
 
-c([[nnoremap \ :NeoTreeRevealToggle<CR>]])
+set('n', [[\]], ':NeoTreeRevealToggle<CR>')
 
-c([[nmap s <cmd>Pounce<CR>
-nmap S <cmd>PounceRepeat<CR>
-vmap s <cmd>Pounce<CR>
-omap gs <cmd>Pounce<CR>]])
+set({ 'n', 'v' }, 's', ':Pounce<CR>')
+set('n', 'S', ':PounceRepeat<CR>')
+set('o', 's', ':Pounce<CR>')
 
+wk.setup({})
 wk.register({
-	["<leader>"] = {
-		q = { ":q<CR>", "Quit" },
-		w = { ":w<CR>", "Save" },
-		x = { ":bd<CR>", "Close buffer" },
+    ["<leader>"] = {
+        q = { ":q<CR>", "Quit" },
+        w = { ":w<CR>", "Save" },
+        x = { ":bd<CR>", "Close buffer" },
 
-		f = { ":Telescope fd<CR>", "Files" },
-		g = { ":Telescope live_grep<CR>", "Grep live" },
-		r = { ":Telescope grep_string<CR>", "Grep string" },
-		b = { ":Telescope buffers<CR>", "Buffers" },
-		o = { ":Telescope oldfiles<CR>", "Recent files" },
-		["/"] = { ":Telescope current_buffer_fuzzy_find<CR>", "Current buffer fzf" },
-		s = {
-			name = "+set",
-			h = { ":set ft=html<CR>", "Set ft html" },
-			p = { ":set ft=php<CR>", "Set ft php" },
-		},
-	},
+        f = { ":FzfLua files<CR>", "Files" },
+        g = { ":FzfLua live_grep_native<CR>", "Grep live" },
+        r = { ":FzfLua grep_cword<CR>", "Grep string" },
+        b = { ":FzfLua buffers<CR>", "Buffers" },
+        o = { ":FzfLua oldfiles<CR>", "Recent files" },
+        ["/"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
+        s = {
+            name = "+set",
+            h = { ":set ft=html<CR>", "Set ft html" },
+            p = { ":set ft=php<CR>", "Set ft php" },
+        },
+    },
 })
 
-wk.register({
-	["<leader>l"] = {
-		name = "+lsp (coc)",
-		d = { ":Telescope coc diagnostics<CR>", "Diagnostics" },
-		D = { ":Telescope coc workspace_diagnostics<CR>", "Workspace diagnostics" },
-		e = { ":<C-u>CocList extensions<cr>", "Extensions" },
-		c = { ":Telescope coc commands<CR>", "Commands" },
-		s = { ":Telescope coc document_symbols<CR>", "Document symbols" },
-		S = { ":Telescope coc workspace_symbols<CR>", "Workspace symbols" },
-		j = { ":<C-u>CocNext<CR>", "Next" },
-		k = { ":<C-u>CocPrev<CR>", "Prev" },
-		p = { ":Telescope resume<CR>", "Resume last list" },
-		r = { "<Plug>(coc-rename)", "Rename", noremap = false },
-		a = { "<Plug>(coc-codeaction)", "Code action", noremap = false },
-		q = { "<Plug>(coc-fix-current)", "Fix current", noremap = false },
-	},
-	g = {
-		d = { "<Plug>(coc-definition)", "Go to definition", noremap = false },
-		y = { "<Plug>(coc-type-definition)", "Go to type definition", noremap = false },
-		i = { "<Plug>(coc-implementation)", "Go to implementation", noremap = false },
-		r = { ":Telescope coc references<CR>", "List references", noremap = false },
-	},
+require("luasnip.loaders.from_vscode").lazy_load()
+require('nvim-autopairs').setup({})
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        end,
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+    }),
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' }, -- For luasnip users.
+    }, {
+        { name = 'buffer' },
+        { name = 'path' },
+    })
 })
+
 
 require("gitsigns").setup({
-	on_attach = function(bufnr)
-		local gs = package.loaded.gitsigns
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
 
-		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
-			vim.keymap.set(mode, l, r, opts)
-		end
+        local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+        end
 
-		-- Navigation
-		map("n", "]c", function()
-			if vim.wo.diff then
-				return "]c"
-			end
-			vim.schedule(function()
-				gs.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
+        -- Navigation
+        map("n", "]c", function()
+            if vim.wo.diff then
+                return "]c"
+            end
+            vim.schedule(function()
+                gs.next_hunk()
+            end)
+            return "<Ignore>"
+        end, { expr = true })
 
-		map("n", "[c", function()
-			if vim.wo.diff then
-				return "[c"
-			end
-			vim.schedule(function()
-				gs.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
+        map("n", "[c", function()
+            if vim.wo.diff then
+                return "[c"
+            end
+            vim.schedule(function()
+                gs.prev_hunk()
+            end)
+            return "<Ignore>"
+        end, { expr = true })
 
-		wk.register({
-			["<leader>h"] = {
-				name = "+hunk operation",
-				S = { gs.stage_buffer, "Stage buffer" },
-				u = { gs.undo_stage_hunk, "Undo stage hunk" },
-				R = { gs.reset_buffer, "Reset buffer" },
-				p = { gs.preview_hunk, "Preview hunk" },
-				b = {
-					function()
-						gs.blame_line({ full = true })
-					end,
-					"Blame line",
-				},
-				d = { gs.diffthis, "Diff this" },
-				D = {
-					function()
-						gs.diffthis("~")
-					end,
-					"Diff buffer",
-				},
-			},
-			["<leader>t"] = {
-				name = "+hunk toggle",
-				b = { gs.toggle_current_line_blame, "Toggle line blame" },
-				d = { gs.toggle_deleted, "Toggle deleted" },
-			},
-		})
+        wk.register({
+            ["<leader>h"] = {
+                name = "+hunk operation",
+                S = { gs.stage_buffer, "Stage buffer" },
+                u = { gs.undo_stage_hunk, "Undo stage hunk" },
+                R = { gs.reset_buffer, "Reset buffer" },
+                p = { gs.preview_hunk, "Preview hunk" },
+                b = {
+                    function()
+                        gs.blame_line({ full = true })
+                    end,
+                    "Blame line",
+                },
+                d = { gs.diffthis, "Diff this" },
+                D = {
+                    function()
+                        gs.diffthis("~")
+                    end,
+                    "Diff buffer",
+                },
+            },
+            ["<leader>t"] = {
+                name = "+hunk toggle",
+                b = { gs.toggle_current_line_blame, "Toggle line blame" },
+                d = { gs.toggle_deleted, "Toggle deleted" },
+            },
+        })
 
-		map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-		map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
-	end,
+        map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+        map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    end,
 })
 
-_G.MUtils.completion_confirm = function()
-	if vim.fn.pumvisible() ~= 0 then
-		return vim.fn["coc#_select_confirm"]()
-	else
-		return npairs.autopairs_cr()
-	end
+local opts = { noremap = true, silent = true }
+set('n', '<leader>d', ':FzfLua lsp_document_diagnostics<CR>', opts)
+set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+local lsp_on_attach = function(_, bufnr)
+    local ob = { noremap = true, silent = true, buffer = bufnr }
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', ob)
+    set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', ob)
+    set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', ob)
+    set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', ob)
+    set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', ob)
+    set('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', ob)
+    set('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', ob)
+    set('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', ob)
+    set('n', '<leader>lD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', ob)
+    set('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', ob)
+    set('n', '<leader>la', ':FzfLua lsp_code_actions<CR>', ob)
+    set('n', '<leader>ls', ':FzfLua lsp_document_symbols<CR>', ob)
+    set('n', '<leader>lS', ':FzfLua lsp_workspace_symbols<CR>', ob)
+    set('n', 'gr', ':FzfLua lsp_references<CR>', ob)
+    set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', ob)
 end
 
-vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })
-
-c([[
-    inoremap <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ CheckBackspace() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-    function! CheckBackspace() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-
-    inoremap <silent><expr> <c-space> coc#refresh()
-
-
-    nmap <silent> [g <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-
-    nnoremap <silent> K :call ShowDocumentation()<CR>
-    function! ShowDocumentation()
-      if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-      else
-        call feedkeys('K', 'in')
-      endif
-    endfunction
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-    augroup mygroup
-      autocmd!
-      autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-    augroup end
-
-    xmap if <Plug>(coc-funcobj-i)
-    omap if <Plug>(coc-funcobj-i)
-    xmap af <Plug>(coc-funcobj-a)
-    omap af <Plug>(coc-funcobj-a)
-    xmap ic <Plug>(coc-classobj-i)
-    omap ic <Plug>(coc-classobj-i)
-    xmap ac <Plug>(coc-classobj-a)
-    omap ac <Plug>(coc-classobj-a)
-
-    if has('nvim-0.4.0') || has('patch-8.2.0750')
-      nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-      nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-      inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-      inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-      vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-      vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    endif
-
-    nmap <silent> <C-s> <Plug>(coc-range-select)
-    xmap <silent> <C-s> <Plug>(coc-range-select)
-
-    command! -nargs=0 Format :call CocActionAsync('format')
-    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-    command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-]])
+Keybinding = { lsp_on_attach = lsp_on_attach }
