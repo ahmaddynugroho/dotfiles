@@ -12,13 +12,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
+vim.opt.autoindent = true
+vim.opt.undofile = true
 
--- coc
-vim.cmd([[
-	set hidden
-	set nobackup
-	set nowritebackup
-	set cmdheight=2
-	set updatetime=300
-	set shortmess+=c
-]])
+vim.cmd[[autocmd FileType php setlocal autoindent]]
+vim.cmd[[set completeopt=menu,menuone,noselect]] -- nvim-cmp
