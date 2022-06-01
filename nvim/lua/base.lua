@@ -15,5 +15,5 @@ vim.opt.ignorecase = true
 vim.opt.autoindent = true
 vim.opt.undofile = true
 
-vim.cmd[[autocmd FileType php setlocal autoindent]]
-vim.cmd[[set completeopt=menu,menuone,noselect]] -- nvim-cmp
+vim.cmd([[autocmd FileType php setlocal autoindent]])
+vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
