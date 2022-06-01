@@ -174,8 +174,11 @@ local lsp_on_attach = function(_, bufnr)
 	set("n", "<leader>lS", ":FzfLua lsp_workspace_symbols<CR>", ob)
 	set("n", "gr", ":FzfLua lsp_references<CR>", ob)
 	set("n", "<leader>lf", function()
-		vim.lsp.buf.formatting()
-		vim.cmd([[FormatWrite]])
+		if vim.bo.filetype == "lua" or vim.bo.filetype == "typescript" or vim.bo.filetype == "javascript" then
+			vim.cmd([[FormatWrite]])
+		else
+			vim.lsp.buf.formatting()
+		end
 	end, ob)
 	-- set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', ob)
 end
