@@ -39,6 +39,7 @@ wk.register({
 		},
 	},
 })
+set("v", "<leader>g", require("fzf-lua").grep_visual, { silent = true })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 require("nvim-autopairs").setup({})

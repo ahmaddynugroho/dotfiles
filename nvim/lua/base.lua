@@ -3,7 +3,6 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_transparent = true
 vim.cmd([[colorscheme tokyonight]])
 
-vim.opt.shortmess = "I"
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -14,6 +13,7 @@ vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.autoindent = true
 vim.opt.undofile = true
+vim.opt.lazyredraw = true
 
 vim.cmd([[autocmd FileType php setlocal autoindent]])
 vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
