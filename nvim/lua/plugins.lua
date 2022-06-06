@@ -42,6 +42,7 @@ return require("packer").startup(function(use)
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
 			},
+            "wellle/context.vim",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()

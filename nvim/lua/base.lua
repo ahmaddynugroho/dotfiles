@@ -1,3 +1,5 @@
+vim.g.context_enabled = 0
+
 vim.opt.termguicolors = true
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_transparent = true

@@ -32,6 +32,8 @@ wk.register({
 		b = { ":FzfLua buffers<CR>", "Buffers" },
 		o = { ":FzfLua oldfiles<CR>", "Recent files" },
 		["/"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
+
+		c = { ":ContextToggle<CR>", "toggle context.vim" },
 		s = {
 			name = "+set",
 			h = { ":set ft=html<CR>", "Set ft html" },
