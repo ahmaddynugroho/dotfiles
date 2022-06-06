@@ -31,7 +31,8 @@ wk.register({
 		r = { ":FzfLua grep_cword<CR>", "Grep string" },
 		b = { ":FzfLua buffers<CR>", "Buffers" },
 		o = { ":FzfLua oldfiles<CR>", "Recent files" },
-		["/"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
+		["?"] = { ":FzfLua blines<CR>", "Current buffer fzf" },
+		["/"] = { ":FzfLua blines<CR>", "Current buffer fzf" },
 
 		s = {
 			name = "+set",
