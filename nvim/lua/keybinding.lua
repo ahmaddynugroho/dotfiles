@@ -33,11 +33,12 @@ wk.register({
 		o = { ":FzfLua oldfiles<CR>", "Recent files" },
 		["/"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
 
-		c = { ":ContextToggle<CR>", "toggle context.vim" },
 		s = {
 			name = "+set",
-			h = { ":set ft=html<CR>", "Set ft html" },
-			p = { ":set ft=php<CR>", "Set ft php" },
+			h = { ":set ft=html<CR>", "ft html" },
+			p = { ":set ft=php<CR>", "ft php" },
+            c = { ":ContextToggle<CR>", "context.vim" },
+            t = { ":TSToggle highlight<CR>", "treesitter highlight"}
 		},
 	},
 })
