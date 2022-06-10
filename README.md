@@ -17,5 +17,5 @@ sudo npm i -g pnpm
 
 # lsp
 sudo pacman -S lua-language-server stylua
-sudo pnpm add -g typescript typescript-language-server intelephense emmet-ls prettier @fsouza/prettierd
+sudo pnpm add -g typescript typescript-language-server intelephense emmet-ls prettier prettier-init @fsouza/prettierd
 ```
