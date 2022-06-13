@@ -22,21 +22,21 @@ set("o", "s", ":Pounce<CR>")
 wk.setup({})
 wk.register({
 	["<leader>"] = {
-		q = { ":q<CR>", "Quit" },
+		q = { ":q!<CR>", "Force quit" },
 		w = { ":w<CR>", "Save" },
-		x = { ":bd<CR>", "Close buffer" },
+		x = { ":bd!<CR>", "Force close buffer" },
 
 		f = { ":FzfLua files<CR>", "Files" },
 		g = { ":FzfLua live_grep_native<CR>", "Grep live" },
 		r = { ":FzfLua grep_cword<CR>", "Grep string" },
 		b = { ":FzfLua buffers<CR>", "Buffers" },
 		o = { ":FzfLua oldfiles<CR>", "Recent files" },
-		["?"] = { ":FzfLua blines<CR>", "Current buffer fzf" },
+		["?"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
 		["/"] = { ":FzfLua blines<CR>", "Current buffer fzf" },
 
 		s = {
 			name = "+set",
-			h = { ":set ft=html<CR>", "ft html" },
+			h = { ":set ft=html syn=php<CR>", "ft html" },
 			p = { ":set ft=php<CR>", "ft php" },
             c = { ":ContextToggle<CR>", "context.vim" },
             t = { ":TSToggle highlight<CR>", "treesitter highlight"}
