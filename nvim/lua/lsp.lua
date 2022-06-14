@@ -25,6 +25,15 @@ l.sumneko_lua.setup({
 		},
 	},
 })
+l.rescriptls.setup({
+    capabilities = capabilities,
+    on_attach = Keybinding.lsp_on_attach,
+	cmd = {
+		"node",
+		"/home/civbag/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js",
+		"--stdio",
+	},
+})
 
 local servers = { "intelephense", "tsserver", "emmet_ls" }
 for _, lsp in pairs(servers) do

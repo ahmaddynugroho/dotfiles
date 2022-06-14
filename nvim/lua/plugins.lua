@@ -86,4 +86,5 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+    use('rescript-lang/vim-rescript')
 end)
