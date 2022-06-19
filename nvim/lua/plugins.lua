@@ -25,15 +25,6 @@ return require("packer").startup(function(use)
 			"rafamadriz/friendly-snippets",
 			"mhartington/formatter.nvim",
 		},
-		config = function()
-			require("formatter").setup({
-				filetype = {
-					lua = { require("formatter.filetypes.lua").stylua },
-					javascript = { require("formatter.filetypes.javascript").prettierd },
-					typescript = { require("formatter.filetypes.typescript").prettierd },
-				},
-			})
-		end,
 	})
 	use({
 		"p00f/nvim-ts-rainbow",
@@ -42,7 +33,7 @@ return require("packer").startup(function(use)
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
 			},
-            "wellle/context.vim",
+			"wellle/context.vim",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
@@ -86,5 +77,5 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-    use('rescript-lang/vim-rescript')
+	use("rescript-lang/vim-rescript")
 end)

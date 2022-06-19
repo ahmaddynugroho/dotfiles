@@ -19,4 +19,3 @@ vim.opt.undofile = true
 vim.opt.lazyredraw = true
 
 vim.cmd([[autocmd FileType php setlocal autoindent]])
-vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
