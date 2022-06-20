@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("folke/which-key.nvim")
 	use("b3nj5m1n/kommentary")
+	use("Pocco81/AutoSave.nvim")
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {

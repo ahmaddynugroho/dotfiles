@@ -7,3 +7,12 @@ require("formatter").setup({
 		html = { require("formatter.filetypes.html").prettierd },
 	},
 })
+
+vim.cmd([[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
+]])
+
+require("autosave").setup()
