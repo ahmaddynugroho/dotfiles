@@ -33,15 +33,14 @@ alias ys="yay -S"
 alias yss="yay -Ss"
 
 # dir
-alias l="ls --color"
+alias l="ls -l"
 alias lf="fd -d 1"
-alias la="ls -a --color"
+alias la="ls -a"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ep="explorer.exe ."
 alias h="cd ~"
 alias r="cd ~/repo"
-alias k="cd /mnt/e/Kuliah"
 mkcdir() {
   mkdir "$1"
   cd "$1"
