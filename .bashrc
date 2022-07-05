@@ -61,35 +61,35 @@ eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
 # TMUX
-# don't waste time if $TMUX environemnt variable is set
-[ -z $TMUX ] || return
-
-# don't start a tmux session if current shell is not connected to a terminal
-pts=$(tty) || return
-
-# find out processes connected to master pseudoterminal
-for ptm in $(fuser /dev/ptmx 2>/dev/null)
-do
-    # ignore process if it's not a tmux server
-    grep -q tmux /proc/$ptm/comm || continue
-    # number of bytes already read by tmux server
-    rchar_old=$(awk '/rchar/ {print $2}' /proc/$ptm/io)
-    # write out 1000 bytes to current slave pseudoterminal terminal
-    dd bs=1 count=1000 if=/dev/zero of=$pts &>/dev/null
-    # read number of bytes again and find difference
-    diff=$(( $(awk '/rchar/ {print $2}' /proc/$ptm/io) - rchar_old ))
-    # if it equals 1000, current terminal is connected to tmux server
-    # however diff comes greater than 1000 most of the times
-    [ $diff -ge 1000 ] && return
-done
-
-# start or attach to a tmux session
-echo 'Press any key to interrupt tmux session.'
-read -st1 key && return
-
-# connect to a detached session if exists for current user
-session=($(tmux list-sessions 2>/dev/null | sed -n '/(attached)/!s/:.*r//p'))
-[ -z $session ] || exec tmux a -t ${session[0]}
-
-# start a new session after all
-exec tmux
+## don't waste time if $TMUX environemnt variable is set
+#[ -z $TMUX ] || return
+#
+## don't start a tmux session if current shell is not connected to a terminal
+#pts=$(tty) || return
+#
+## find out processes connected to master pseudoterminal
+#for ptm in $(fuser /dev/ptmx 2>/dev/null)
+#do
+    ## ignore process if it's not a tmux server
+    #grep -q tmux /proc/$ptm/comm || continue
+    ## number of bytes already read by tmux server
+    #rchar_old=$(awk '/rchar/ {print $2}' /proc/$ptm/io)
+    ## write out 1000 bytes to current slave pseudoterminal terminal
+    #dd bs=1 count=1000 if=/dev/zero of=$pts &>/dev/null
+    ## read number of bytes again and find difference
+    #diff=$(( $(awk '/rchar/ {print $2}' /proc/$ptm/io) - rchar_old ))
+    ## if it equals 1000, current terminal is connected to tmux server
+    ## however diff comes greater than 1000 most of the times
+    #[ $diff -ge 1000 ] && return
+#done
+#
+## start or attach to a tmux session
+#echo 'Press any key to interrupt tmux session.'
+#read -st1 key && return
+#
+## connect to a detached session if exists for current user
+#session=($(tmux list-sessions 2>/dev/null | sed -n '/(attached)/!s/:.*r//p'))
+#[ -z $session ] || exec tmux a -t ${session[0]}
+#
+## start a new session after all
+#exec tmux
