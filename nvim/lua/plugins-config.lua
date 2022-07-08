@@ -1,4 +1,6 @@
 vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
+
+-- formatter.nvim
 require("formatter").setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
@@ -8,6 +10,7 @@ require("formatter").setup({
 	},
 })
 
+-- Auto format
 vim.cmd([[
 augroup FormatAutogroup
   autocmd!
@@ -15,4 +18,15 @@ augroup FormatAutogroup
 augroup END
 ]])
 
-require("autosave").setup()
+-- treesitter
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "lua", "typescript", "javascript", "php", "zig" },
+	sync_install = false,
+	auto_install = true,
+	highlight = { enable = true, additional_vim_regex_highlighting = false },
+	rainbow = {
+		enable = true,
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		max_file_lines = 700, -- Do not enable for files with more than n lines, int
+	},
+})

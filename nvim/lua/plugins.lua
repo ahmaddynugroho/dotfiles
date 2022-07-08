@@ -2,6 +2,7 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("lewis6991/impatient.nvim")
 	use("folke/tokyonight.nvim")
+	use("morhetz/gruvbox")
 	use("nvim-lua/plenary.nvim")
 	use("lewis6991/gitsigns.nvim")
 	use("unblevable/quick-scope")
@@ -12,7 +13,6 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("folke/which-key.nvim")
 	use("b3nj5m1n/kommentary")
-	use("Pocco81/AutoSave.nvim")
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
@@ -37,18 +37,6 @@ return require("packer").startup(function(use)
 			"wellle/context.vim",
 			"nvim-treesitter/nvim-treesitter-context",
 		},
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "lua", "typescript", "javascript", "php" },
-				sync_install = true,
-				highlight = { enable = false, additional_vim_regex_highlighting = false },
-				rainbow = {
-					enable = true,
-					extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-					max_file_lines = 700, -- Do not enable for files with more than n lines, int
-				},
-			})
-		end,
 	})
 	use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({
