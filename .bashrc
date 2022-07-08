@@ -19,12 +19,15 @@ alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
 alias v="lazygit"
 alias a="nvim"
-alias ni="nvim ~/dotfiles/nvim/init.lua"
+alias ai="cd ~/dotfiles/nvim && nvim init.lua"
+alias t="tmux"
 
 # Path
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.local/zig"
+export PATH="$PATH:$HOME/zls/bin/"
 
 # Yay
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
@@ -33,9 +36,10 @@ alias ys="yay -S"
 alias yss="yay -Ss"
 
 # dir
-alias l="ls -l"
-alias lf="fd -d 1"
-alias la="ls -a"
+alias l="ls -l --color"
+alias lt="ls -lt --color"
+alias la="ls -la --color"
+alias lat="ls -lta --color"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ep="explorer.exe ."
@@ -48,6 +52,9 @@ mkcdir() {
 
 # nodejs
 alias p="pnpm"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zoxide
 eval "$(zoxide init bash)"
