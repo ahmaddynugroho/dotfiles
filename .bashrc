@@ -27,7 +27,7 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/zig"
-export PATH="$PATH:$HOME/zls/bin/"
+export PATH="$PATH:$HOME/.local/zls/bin/"
 
 # Yay
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
