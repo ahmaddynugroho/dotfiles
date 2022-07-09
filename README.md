@@ -28,6 +28,8 @@ pip install pynvim
 yay -S nvm
 echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
 . .bashrc
+
+# Node
 nvm install node --latest-npm
 npm i -g pnpm
 
