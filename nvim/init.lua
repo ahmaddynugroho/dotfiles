@@ -1,8 +1,6 @@
-require("impatient")
-
 require("plugins")
+require("impatient")
 require("base")
 require("keybinding")
 require("plugins-config")
-
 require("lsp")
