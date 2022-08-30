@@ -26,11 +26,12 @@ wk.register({
         w = { ":w<CR>", "Save" },
         x = { ":bd!<CR>", "Force close buffer" },
 
+        b = { ":FzfLua buffers<CR>", "Buffers" },
+        c = { ":FzfLua command_history<CR>", "Command history" },
         f = { ":FzfLua files<CR>", "Files" },
         g = { ":FzfLua live_grep_native<CR>", "Grep live" },
-        r = { ":FzfLua grep_cword<CR>", "Grep string" },
-        b = { ":FzfLua buffers<CR>", "Buffers" },
         o = { ":FzfLua oldfiles<CR>", "Recent files" },
+        r = { ":FzfLua grep_cword<CR>", "Grep string" },
         ["?"] = { ":FzfLua lines<CR>", "Current buffer fzf" },
         ["/"] = { ":FzfLua blines<CR>", "Current buffer fzf" },
 
