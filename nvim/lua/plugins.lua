@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
-			"mhartington/formatter.nvim",
+			-- "mhartington/formatter.nvim",
 		},
 	})
 	use({

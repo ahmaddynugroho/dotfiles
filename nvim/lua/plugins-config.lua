@@ -1,22 +1,23 @@
 vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
 
 -- formatter.nvim
-require("formatter").setup({
+--[[ require("formatter").setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
 		javascript = { require("formatter.filetypes.javascript").prettierd },
 		typescript = { require("formatter.filetypes.typescript").prettierd },
 		html = { require("formatter.filetypes.html").prettierd },
+		zig = { require("formatter.filetypes.zig").zigfmt },
 	},
-})
+}) ]]
 
 -- Auto format
-vim.cmd([[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
-]])
+--vim.cmd([[
+--augroup FormatAutogroup
+  --autocmd!
+  --autocmd BufWritePost * FormatWrite
+--augroup END
+--]])
 
 -- treesitter
 require("nvim-treesitter.configs").setup({
