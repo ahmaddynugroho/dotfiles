@@ -7,6 +7,7 @@ require("formatter").setup({
 		javascript = { require("formatter.filetypes.javascript").prettierd },
 		typescript = { require("formatter.filetypes.typescript").prettierd },
 		html = { require("formatter.filetypes.html").prettierd },
+		css = { require("formatter.filetypes.css").prettierd },
 		zig = { require("formatter.filetypes.zig").zigfmt },
 	},
 })
@@ -21,7 +22,15 @@ require("formatter").setup({
 
 -- treesitter
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "typescript", "javascript", "php", "zig" },
+	ensure_installed = {
+		"lua",
+		"typescript",
+		"html",
+		"javascript",
+		"css",
+		"php",
+		"zig",
+	},
 	sync_install = false,
 	auto_install = true,
 	highlight = { enable = true, additional_vim_regex_highlighting = false },
