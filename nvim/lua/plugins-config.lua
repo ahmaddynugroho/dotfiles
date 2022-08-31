@@ -1,7 +1,7 @@
 vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
 
 -- formatter.nvim
---[[ require("formatter").setup({
+require("formatter").setup({
 	filetype = {
 		lua = { require("formatter.filetypes.lua").stylua },
 		javascript = { require("formatter.filetypes.javascript").prettierd },
@@ -9,13 +9,13 @@ vim.cmd([[set completeopt=menu,menuone,noselect]]) -- nvim-cmp
 		html = { require("formatter.filetypes.html").prettierd },
 		zig = { require("formatter.filetypes.zig").zigfmt },
 	},
-}) ]]
+})
 
 -- Auto format
 --vim.cmd([[
 --augroup FormatAutogroup
-  --autocmd!
-  --autocmd BufWritePost * FormatWrite
+--autocmd!
+--autocmd BufWritePost * FormatWrite
 --augroup END
 --]])
 
@@ -31,3 +31,25 @@ require("nvim-treesitter.configs").setup({
 		max_file_lines = 700, -- Do not enable for files with more than n lines, int
 	},
 })
+
+-- toggleterm
+require("toggleterm").setup({
+	open_mapping = "<C-\\>",
+	direction = "float",
+})
+function _G.set_terminal_keymaps()
+	local opts = { buffer = 0 }
+	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+	vim.keymap.set("t", "kj", [[<C-\><C-n>]], opts)
+end
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+vim.keymap.set("n", "<leader>tg", function()
+	require("toggleterm.terminal").Terminal
+		:new({
+			cmd = "lazygit",
+			hidden = true,
+			direction = "float",
+		})
+		:toggle()
+end, { noremap = true, silent = true })
