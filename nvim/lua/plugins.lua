@@ -55,8 +55,10 @@ return require("packer").startup(function(use)
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
 			},
+			"sheerun/vim-polyglot",
 			"wellle/context.vim",
 			"nvim-treesitter/nvim-treesitter-context",
+            "windwp/nvim-ts-autotag"
 		},
 	})
 	use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })

@@ -33,7 +33,9 @@ require("nvim-treesitter.configs").setup({
 	},
 	sync_install = false,
 	auto_install = true,
-	highlight = { enable = true, additional_vim_regex_highlighting = false },
+	highlight = { enable = true, additional_vim_regex_highlighting = true },
+	autotag = { enable = true },
+	indent = { enable = false },
 	rainbow = {
 		enable = true,
 		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -46,13 +48,6 @@ require("toggleterm").setup({
 	open_mapping = "<C-\\>",
 	direction = "float",
 })
-function _G.set_terminal_keymaps()
-	local opts = { buffer = 0 }
-	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-	vim.keymap.set("t", "kj", [[<C-\><C-n>]], opts)
-end
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 vim.keymap.set("n", "<leader>tg", function()
 	require("toggleterm.terminal").Terminal
 		:new({
