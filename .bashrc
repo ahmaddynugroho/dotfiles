@@ -18,7 +18,7 @@ alias S="sudo "
 alias b="nvim ~/.bashrc"
 alias bs="source ~/.bashrc"
 alias v="lazygit"
-alias a="nvim"
+alias a="neovide.exe --maximized --wsl"
 alias ai="cd ~/dotfiles/nvim && nvim init.lua"
 alias t="tmux"
 

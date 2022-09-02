@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("folke/which-key.nvim")
 	use("b3nj5m1n/kommentary")
+	use("nanotee/zoxide.vim")
     use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
       require("toggleterm").setup()
     end}

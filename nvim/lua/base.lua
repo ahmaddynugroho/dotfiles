@@ -21,3 +21,5 @@ vim.opt.ignorecase = true
 vim.opt.undofile = true
 vim.opt.lazyredraw = true
 
+-- Neovide
+vim.cmd('set guifont=MesloLGM_NF:h10')
