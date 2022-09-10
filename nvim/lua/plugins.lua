@@ -12,14 +12,7 @@ return require("packer").startup(function(use)
 		--[[ config = function()
 		end, ]]
 	})
-	use({
-		"folke/tokyonight.nvim",
-		-- config = function()
-		-- vim.g.tokyonight_style = "night"
-		-- vim.g.tokyonight_transparent = true
-		-- vim.cmd([[colorscheme tokyonight]])
-		-- end,
-	})
+	use("shaunsingh/nord.nvim")
 	use("morhetz/gruvbox")
 	use("nvim-lua/plenary.nvim")
 	use("lewis6991/gitsigns.nvim")
