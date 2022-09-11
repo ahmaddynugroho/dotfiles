@@ -43,5 +43,5 @@ git clone http://github.com/ahmaddynugroho/dotfiles -C ~/dotfiles
 ln -s ~/dotfiles/nvim/ ~/.config/nvim
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 mv ~/.bashrc ~/.bashrc.bak && ln -s ~/dotfiles/.bashrc ~/.bashrc
-nvim -c "source ~/.config/nvim/lua/plugins.lua" # Packer auto install
+nvim -S ~/.config/nvim/lua/plugins.lua +PackerSync # Packer auto install
 ```
