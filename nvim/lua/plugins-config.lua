@@ -10,6 +10,7 @@ require("formatter").setup({
 		html = { require("formatter.filetypes.html").prettierd },
 		css = { require("formatter.filetypes.css").prettierd },
 		zig = { require("formatter.filetypes.zig").zigfmt },
+		python = { require("formatter.filetypes.python").black },
 	},
 })
 
@@ -31,6 +32,7 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"php",
 		"zig",
+		"python",
 	},
 	sync_install = false,
 	auto_install = true,

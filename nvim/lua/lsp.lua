@@ -35,7 +35,7 @@ l.rescriptls.setup({
 	},
 })
 
-local servers = { "intelephense", "tsserver", "emmet_ls", "zls" }
+local servers = { "intelephense", "tsserver", "emmet_ls", "zls", "pyright" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		capabilities = capabilities,
