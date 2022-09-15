@@ -1,11 +1,9 @@
 vim.g.context_enabled = 0
 
 vim.opt.termguicolors = true
-
--- Nord
-vim.g.nord_contrast = true
-vim.g.nord_disable_background = true
-require("nord").set()
+vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_transparent = true
+vim.cmd("colorscheme tokyonight")
 
 -- Autoread
 vim.cmd("set autoread")
