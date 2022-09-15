@@ -21,6 +21,7 @@ alias v="lazygit"
 alias a="nvim"
 alias ai="cd ~/dotfiles/nvim && nvim init.lua"
 alias t="tmux"
+alias py="python"
 
 # Path
 export PNPM_HOME="$HOME/.local/share/pnpm"
