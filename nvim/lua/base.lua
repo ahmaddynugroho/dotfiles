@@ -1,8 +1,11 @@
 vim.g.context_enabled = 0
 
 vim.opt.termguicolors = true
-vim.g.tokyonight_style = "night"
--- vim.g.tokyonight_transparent = true
+require("tokyonight").setup({
+	style = "night",
+	transparent = true,
+	terminal_colors = true,
+})
 vim.cmd("colorscheme tokyonight")
 
 -- Autoread
@@ -20,6 +23,3 @@ vim.opt.shiftwidth = 4
 vim.opt.ignorecase = true
 vim.opt.undofile = true
 vim.opt.lazyredraw = true
-
--- Neovide
-vim.cmd('set guifont=MesloLGM_NF:h10')
