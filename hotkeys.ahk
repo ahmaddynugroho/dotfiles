@@ -1,3 +1,4 @@
+3::3
 SC027::SC027
 3 & h::Left
 3 & j::Down
@@ -9,9 +10,9 @@ SC027 & i::Home
 SC027 & a::End
 SC027 & j::PgDn
 SC027 & k::PgUp
-Escape::CapsLock
 
 ; https://gist.github.com/volks73/1e889e01ad0a736159a5d56268a300a8
+Escape::CapsLock
 *CapsLock::
     Send {Blind}{Ctrl Down}
     cDown := A_TickCount
