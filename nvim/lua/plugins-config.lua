@@ -14,14 +14,6 @@ require("formatter").setup({
 	},
 })
 
--- Auto format
---vim.cmd([[
---augroup FormatAutogroup
---autocmd!
---autocmd BufWritePost * FormatWrite
---augroup END
---]])
-
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
@@ -41,22 +33,7 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = false },
 	rainbow = {
 		enable = true,
-		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = 700, -- Do not enable for files with more than n lines, int
+		extended_mode = true,
+		max_file_lines = 700,
 	},
 })
-
--- toggleterm
-require("toggleterm").setup({
-	open_mapping = "<C-\\>",
-	direction = "float",
-})
-vim.keymap.set("n", "<leader>tg", function()
-	require("toggleterm.terminal").Terminal
-		:new({
-			cmd = "lazygit",
-			hidden = true,
-			direction = "float",
-		})
-		:toggle()
-end, { noremap = true, silent = true })

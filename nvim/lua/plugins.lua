@@ -7,19 +7,8 @@ end
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use({
-		"lewis6991/impatient.nvim",
-		--[[ config = function()
-		end, ]]
-	})
-	use({
-		"folke/tokyonight.nvim",
-		-- config = function()
-		-- vim.g.tokyonight_style = "night"
-		-- vim.g.tokyonight_transparent = true
-		-- vim.cmd([[colorscheme tokyonight]])
-		-- end,
-	})
+	use({ "lewis6991/impatient.nvim" })
+	use({ "folke/tokyonight.nvim" })
 	use("morhetz/gruvbox")
 	use("nvim-lua/plenary.nvim")
 	use("lewis6991/gitsigns.nvim")
@@ -32,9 +21,13 @@ return require("packer").startup(function(use)
 	use("folke/which-key.nvim")
 	use("b3nj5m1n/kommentary")
 	use("nanotee/zoxide.vim")
-    use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-      require("toggleterm").setup()
-    end}
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "v2.*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
 	use({
 		"neovim/nvim-lspconfig",
 		requires = {
@@ -59,7 +52,7 @@ return require("packer").startup(function(use)
 			"sheerun/vim-polyglot",
 			"wellle/context.vim",
 			"nvim-treesitter/nvim-treesitter-context",
-            "windwp/nvim-ts-autotag"
+			"windwp/nvim-ts-autotag",
 		},
 	})
 	use({ "ibhagwan/fzf-lua", requires = { "kyazdani42/nvim-web-devicons" } })
