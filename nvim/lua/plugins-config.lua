@@ -11,6 +11,14 @@ require("formatter").setup({
 		css = { require("formatter.filetypes.css").prettierd },
 		zig = { require("formatter.filetypes.zig").zigfmt },
 		python = { require("formatter.filetypes.python").yapf },
+		nim = {
+			function()
+				return {
+					exe = "nimpretty",
+					args = { "--indent:2" },
+				}
+			end,
+		},
 	},
 })
 

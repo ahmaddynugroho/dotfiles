@@ -1,5 +1,5 @@
 local l = require("lspconfig")
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 l.sumneko_lua.setup({
 	capabilities = capabilities,
@@ -23,7 +23,7 @@ l.rescriptls.setup({
 	},
 })
 
-local servers = { "intelephense", "tsserver", "emmet_ls", "zls", "pyright" }
+local servers = { "intelephense", "tsserver", "emmet_ls", "zls", "pyright", "nimls" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		capabilities = capabilities,
