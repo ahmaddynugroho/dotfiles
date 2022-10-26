@@ -29,6 +29,7 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.local/zig"
 export PATH="$PATH:$HOME/.local/zls/bin/"
+export PATH=/home/civbag/.nimble/bin:$PATH
 
 # Yay
 alias upmir="sudo reflector -p http,https -f 7 -l 15 --save /etc/pacman.d/mirrorlist"
