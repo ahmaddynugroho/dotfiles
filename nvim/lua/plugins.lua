@@ -7,8 +7,8 @@ end
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
-	use({ "lewis6991/impatient.nvim" })
-	use({ "folke/tokyonight.nvim" })
+	use("lewis6991/impatient.nvim")
+	use("folke/tokyonight.nvim")
 	use("morhetz/gruvbox")
 	use("nvim-lua/plenary.nvim")
 	use("lewis6991/gitsigns.nvim")
