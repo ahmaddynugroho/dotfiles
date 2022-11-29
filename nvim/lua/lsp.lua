@@ -1,10 +1,11 @@
 local servers =
 	{ "sumneko_lua", "rescriptls", "intelephense", "tsserver", "emmet_ls", "zls", "pyright", "nimls", "rust_analyzer" }
+--[[ local servers =
+	{ "sumneko_lua", "intelephense" } ]]
 for _, lsp in pairs(servers) do
 	local sttn = { -- default settings
 		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = Keybinding.lsp_on_attach,
-		settings = {}, -- empty table to remove warning
 	}
 	local spcf = { -- specific settings
 		sumneko_lua = {
@@ -33,6 +34,7 @@ for _, lsp in pairs(servers) do
 			sttn[j] = w
 		end
 	end
+	-- vim.pretty_print(sttn)
 
 	require("lspconfig")[lsp].setup(sttn)
 end
