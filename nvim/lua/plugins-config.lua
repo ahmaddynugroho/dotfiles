@@ -11,6 +11,7 @@ require("formatter").setup({
 		css = { require("formatter.filetypes.css").prettierd },
 		zig = { require("formatter.filetypes.zig").zigfmt },
 		python = { require("formatter.filetypes.python").yapf },
+		rust = { require("formatter.filetypes.rust").rustfmt },
 		nim = {
 			function()
 				return {
