@@ -182,7 +182,7 @@ local lsp_on_attach = function(_, bufnr)
 		vim.cmd([[FormatWrite]])
 	end, ob)
 	set("n", "<leader>lF", function()
-		vim.lsp.buf.formatting()
+		vim.lsp.buf.format({ async = true })
 	end)
 	-- set('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', ob)
 end
