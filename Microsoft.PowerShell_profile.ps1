@@ -5,13 +5,12 @@ Invoke-Expression (& {
 })
 
 # PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'
-Set-PsFzfOption -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 # Get-History
 if(Test-Path alias:h) { Remove-Alias h }
 
 # ENVIRONTMENT VARIABLES
-$env:FZF_DEFAULT_COMMAND = "fd -H -a"
+$env:FZF_DEFAULT_COMMAND = "fd -a"
 $env:FZF_CTRL_T_COMMAND = "$env:FZF_DEFAULT_COMMAND"
 $env:FZF_Alt_C_COMMAND = "$env:FZF_DEFAULT_COMMAND -t d"
