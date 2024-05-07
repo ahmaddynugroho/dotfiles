@@ -19,5 +19,6 @@ sudo apt install libxcb-xinerama0 libxcb-cursor0 libxcb-xcccm4 libxcb-keysyms1 l
 
 # setup japanese ime
 sudo apt install zenity fcitx5 fcitx5-mozc
-im-config
+im-config # and then move mozc to the left side
+echo 'source ~/repo/dotfiles/xprofile.bash' >> /home/${$USER}/.xprofile
 ```
