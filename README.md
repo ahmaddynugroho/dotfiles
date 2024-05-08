@@ -8,8 +8,9 @@ git config --global user.name "ahmaddynugroho"
 git config --global user.email "ahmaddwi700@gmail.com"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"" >> /home/${$USER}/.bashrc
-echo 'source ~/repo/dotfiles/bashrc.bash' >> /home/${$USER}/.bashrc
-brew install zoxide fzf lazygit neovim gh tmux rg
+echo 'source $(pwd)/bashrc.bash' >> /home/${$USER}/.bashrc
+sudo ln -s $(pwd)/.tmux.conf /home/${$USER}/.tmux.conf
+brew install zoxide fzf lazygit neovim gh tmux rg bat
 source ~/.bashrc
 gh auth login
 gh auth setup-git
