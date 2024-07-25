@@ -25,6 +25,7 @@ rm -rf ~/.config/nvim/.git
 # install kanata
 # https://github.com/jtroo/kanata/releases
 
-# install misc
-apt install tmux
+# misc
+apt install tmux gh
+gh auth login
 ```
