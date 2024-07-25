@@ -1,29 +1,30 @@
-```PowerShell
-New-Item -Path ~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -ItemType SymbolicLink -Value (Get-Item ".\Microsoft.PowerShell_profile.ps1").FullName
-```
-
 ```bash
-sudo apt install git xcape
-git config --global user.name "ahmaddynugroho"
-git config --global user.email "ahmaddwi700@gmail.com"
-mkdir repo
-cd repo
-git clone https://github.com/ahmaddynugroho/dotfiles
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"" >> /home/${USER}/.bashrc
-echo "source $(pwd)/bashrc.bash" >> /home/${USER}/.bashrc
-sudo ln -s $(pwd)/.tmux.conf /home/${USER}/.tmux.conf
-brew install zoxide fzf lazygit neovim gh tmux rg bat
-source ~/.bashrc
-gh auth login
-gh auth setup-git
-# then add the caps2esc to startup using xfce4-session-settings
+# install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
-# setup anki in debian
-sudo apt install libxcb-xinerama0 libxcb-cursor0 libxcb-xcccm4 libxcb-keysyms1 libnss3 mpv
+# install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-# setup japanese IME
-sudo apt install zenity fcitx5 fcitx5-mozc
-im-config # and then move mozc to the left side
-echo "source $(pwd)/xprofile.bash" >> /home/${USER}/.xprofile
+# install lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+
+# install neovim
+# get it from https://github.com/neovim/neovim/releases/
+# then install lazyvim
+mv ~/.config/nvim{,.bak}
+mv ~/.local/share/nvim{,.bak}
+mv ~/.local/state/nvim{,.bak}
+mv ~/.cache/nvim{,.bak}
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+
+# install kanata
+# https://github.com/jtroo/kanata/releases
+
+# install misc
+apt install tmux
 ```

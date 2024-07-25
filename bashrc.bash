@@ -1,9 +1,12 @@
+alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
-alias python=python3
+alias t="tmux"
+alias v="lazygit"
+alias n="nvim"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-. /usr/share/doc/fzf/examples/key-bindings.bash
+eval "$(fzf --bash)"
 eval "$(zoxide init bash)"

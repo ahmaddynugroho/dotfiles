@@ -1,0 +1,39 @@
+(defcfg
+  process-unmapped-keys yes
+)
+(defsrc
+  esc
+  caps a    s    d    f    h    j    k    l    ;
+                           n    m    ,    .
+                      spc
+)
+(deflayer base
+  caps
+  esc  @a   @s   @d   @f   _    @j   @k   @l   @;
+                           _    _    _    _
+                      @nav
+)
+(deflayer navigation
+  caps
+  esc  lmet lalt rctl rsft lft  down up   rght _
+                           home pgdn pgup end
+                      _
+)
+(defvar
+  four 210
+  three 210
+  two 180
+  one 170
+)
+(defalias
+  a (tap-hold $four $four a lmet)
+  s (tap-hold $three $three s lalt)
+  d (tap-hold $two $two d lctl)
+  f (tap-hold $one $one f lsft)
+  j (tap-hold $one $one j rsft)
+  k (tap-hold $two $two k rctl)
+  l (tap-hold $three $three l ralt)
+  ; (tap-hold $four $four ; rmet)
+
+  nav (tap-hold $one $one spc (layer-while-held navigation))
+)
