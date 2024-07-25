@@ -1,0 +1,14 @@
+import = [
+  "C:\\Users\\Yara\\AppData\\Roaming\\alacritty\\catppuccin-mocha.toml"
+]
+shell = "wsl"
+
+[window]
+startup_mode = "Maximized"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "BlexMono Nerd Font"}
+size = 8.5
