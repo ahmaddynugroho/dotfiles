@@ -8,5 +8,4 @@ alias n="nvim"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
