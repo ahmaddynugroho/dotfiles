@@ -3,18 +3,21 @@
 )
 (defsrc
   esc
+                                               p
   caps a    s    d    f    h    j    k    l    ;
                            n    m    ,    .
                       spc
 )
 (deflayer base
   caps
+                                               _
   esc  @a   @s   @d   @f   _    @j   @k   @l   @;
                            _    _    _    _
                       @nav
 )
 (deflayer navigation
   caps
+                                               `
   esc  lmet lalt rctl rsft lft  down up   rght _
                            home pgdn pgup end
                       _
