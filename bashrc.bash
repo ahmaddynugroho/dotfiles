@@ -9,3 +9,4 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 eval "$(zoxide init bash)"
+eval "$(fnm env --use-on-cd --shell bash)"
