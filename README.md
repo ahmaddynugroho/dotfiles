@@ -1,4 +1,17 @@
 ```bash
+# install kanata
+# https://github.com/jtroo/kanata/releases
+
+# dependencies
+sudo apt update
+sudo add-apt-repository universe # for libfuse2 for running .appimage
+sudo apt install xsel zip unzip libfuse2 build-essential ripgrep gh
+
+# setup git
+gh auth login
+git config --global user.name "ahmaddynugroho"
+git config --global user.email "ahmaddwi700@gmail.com"
+
 # install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
@@ -12,20 +25,21 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 
-# install neovim
-# get it from https://github.com/neovim/neovim/releases/
-# then install lazyvim
-mv ~/.config/nvim{,.bak}
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+# get tmux.appimage in https://github.com/nelsonenzo/tmux-appimage/releases
 
-# install kanata
-# https://github.com/jtroo/kanata/releases
+# setup fnm for neovim dependencies
+curl -fsSL https://fnm.vercel.app/install | bash
+fnm install 22
 
-# misc
-apt install tmux gh
-gh auth login
+# get neovim from https://github.com/neovim/neovim/releases/
+git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
+
+# setup dotfile
+cd ~
+mkdir repo
+cd repo
+git clone https://github.com/ahmaddynugroho/dotfiles
+cd ~
+ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
+echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
 ```
