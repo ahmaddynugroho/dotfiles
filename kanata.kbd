@@ -9,7 +9,7 @@
                       spc
 )
 (deflayer base
-  caps
+  @cgm
                                                _
   esc  @a   @s   @d   @f   _    @j   @k   @l   @;
                            _    _    _    _
@@ -20,6 +20,13 @@
                                                `
   esc  lmet lalt rctl rsft lft  down up   rght _
                            home pgdn pgup end
+                      _
+)
+(deflayer gaming
+  @bas
+                                               _
+  esc  _    _    _    _    _    _    _    _    _
+                           _    _    _    _
                       _
 )
 (defvar
@@ -39,4 +46,6 @@
   ; (tap-hold $four $four ; rmet)
 
   nav (tap-hold $one $one spc (layer-while-held navigation))
+  cgm (tap-dance $two (caps (layer-switch gaming)))
+  bas (tap-dance $two (caps (layer-switch base)))
 )
