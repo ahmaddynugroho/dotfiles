@@ -14,3 +14,5 @@ PATH=$PATH:~/.local/bin
 
 eval "$(zoxide init bash)"
 eval "$(fnm env --use-on-cd --shell bash)"
+
+PS1="$PS1\n> "
