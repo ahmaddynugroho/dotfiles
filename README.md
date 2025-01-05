@@ -5,7 +5,7 @@
 # dependencies
 sudo apt update
 sudo add-apt-repository universe # for libfuse2 for running .appimage
-sudo apt install xsel zip unzip libfuse2 build-essential ripgrep gh
+sudo apt install xsel zip unzip libfuse2 build-essential ripgrep gh bat
 
 # setup git
 gh auth login
