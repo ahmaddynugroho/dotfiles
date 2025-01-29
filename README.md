@@ -25,14 +25,14 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 
-# get tmux.appimage in https://github.com/nelsonenzo/tmux-appimage/releases
-
 # setup fnm for neovim dependencies
 curl -fsSL https://fnm.vercel.app/install | bash
 fnm install 22
 
 # get neovim from https://github.com/neovim/neovim/releases/
 git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
+
+# get lf from https://github.com/gokcehan/lf/releases
 
 # setup dotfile
 cd ~
