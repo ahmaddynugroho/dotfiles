@@ -3,29 +3,25 @@
 )
 (defsrc
   esc  1    2    3    4    5    6    7    8    9    0
-                           y    u    i    o    p
-  caps a    s    d    f    h    j    k    l    ;
+  caps a    s    d    f    h    j    k    l    ;    '
                            n    m    ,    .
                       spc
 )
 (deflayer base
   @cgm _    _    _    _    _    _    _    _    _    _
-                           _    _    _    _    _
-  esc  @a   @s   @d   @f   _    @j   @k   @l   @;
+  esc  @a   @s   @d   @f   _    @j   @k   @l   @;   _
                            _    _    _    _
                       @nav
 )
 (deflayer navigation
   caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10
-                           -    =    [    ]    `
-  esc  lmet lalt rctl rsft lft  down up   rght _
+  esc  _    _    _    _    lft  down up   rght _    `
                            home pgdn pgup end
                       _
 )
 (deflayer gaming
   @bas _    _    _    _    _    _    _    _    _    _
-                           _    _    _    _    _
-  esc  _    _    _    _    _    _    _    _    _
+  esc  _    _    _    _    _    _    _    _    _    _
                            _    _    _    _
                       _
 )
