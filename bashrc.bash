@@ -14,7 +14,12 @@ export PAGER=batcat
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/.local/bin
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
 eval "$(zoxide init bash)"
 eval "$(fnm env --use-on-cd --shell bash)"
+eval "$(pyenv init - bash)"
+eval "$(pyenv virtualenv-init -)"
 
 PS1="$PS1\n> "
