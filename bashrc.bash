@@ -1,3 +1,5 @@
+source ~/repo/dotfiles/utils/prompt_git_commit.sh
+
 alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
