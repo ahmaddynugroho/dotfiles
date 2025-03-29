@@ -9,17 +9,18 @@ prompt_git_commit() {
   if [[ "$full_diff" == *'diff --git'* ]]; then
     output=$(
       cat <<EOF
-- you will create one semantic commit message from git diff
-- use list format to list what's changed
-- don't mention benefits like 'this will make user happy', 'for better clarity'
-- use nested list when possible
+create semantic commit message with the following criteria:
+- always escape backticks (\`) with a backslash (\\)
+- add context like 'feat(dashboard)' or 'refactor(auth-register)' to the title
+- list what's changed
+- use nested list
 - use '-' instead of '*' for the list
 - use 2 spaces for the nested list
-- always add context like 'feat(dashboard)', 'refactor(auth-register)' for the commit title
-- always escape backticks (\`). for example, use \\\`foo\\\` instead of \`foo\`
-- reply with 'git commit ...' command and with the commit message so i can run it in my terminal
+- reply directly as a git commit command (bash)
 
+\`\`\`
 $full_diff
+\`\`\`
 EOF
     )
     echo "$output" | xsel --clipboard
