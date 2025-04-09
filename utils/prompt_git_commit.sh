@@ -16,7 +16,7 @@ create semantic commit message with the following criteria:
 - use nested list
 - use '-' instead of '*' for the list
 - use 2 spaces for the nested list
-- reply directly as a git commit command (bash)
+- reply with git commit command (bash)
 
 \`\`\`
 $full_diff
