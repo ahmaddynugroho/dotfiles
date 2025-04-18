@@ -8,10 +8,13 @@ chmod 755 ~/.local/bin/kanata
 
 # install utilities
 dnf install fzf zoxide nvim ripgrep bat xsel gh
+
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
+
 curl -fsSL https://fnm.vercel.app/install | bash
 fnm i 22
+
 bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)"
 
 # setup
@@ -20,9 +23,14 @@ git config --global user.name "ahmaddynugroho"
 git config --global user.email "ahmaddwi700@gmail.com"
 git clone https://github.com/ahmaddynugroho/dotfiles ~/repo/dotfiles
 git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
+
+ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
+echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
+
 cp ~/repo/dotfiles/kanata.service /etc/systemd/system/
 sudo systemctl enable kanata
 sudo systemctl start kanata
+
 mkdir -p ~/.local/share/fonts
 curl -Lo ~/.local/share/fonts/firacode.tar.xz https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.tar.xz
 tar xvf ~/.local/share/fonts/firacode.tar.xz -C ~/.local/share/fonts
