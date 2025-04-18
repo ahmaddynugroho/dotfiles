@@ -1,4 +1,4 @@
-### Fedora
+### Fedora KDE (DO NOT USE GNOME)
 ```bash
 # install kanata
 # https://github.com/jtroo/kanata/releases
@@ -22,7 +22,7 @@ aider-install
 
 # setup
 gh auth login
-git config --global user.name "ahmaddynugroho"
+git config --global user.name "miku4j"
 git config --global user.email "ahmaddwi700@gmail.com"
 git clone https://github.com/ahmaddynugroho/dotfiles ~/repo/dotfiles
 git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
