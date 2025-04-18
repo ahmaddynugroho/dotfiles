@@ -28,6 +28,7 @@ git clone https://github.com/ahmaddynugroho/dotfiles ~/repo/dotfiles
 git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
 
 ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
+ln -s $(pwd)/repo/dotfiles/.wezterm.lua $(pwd)/.wezterm.lua
 echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
 
 cp ~/repo/dotfiles/kanata.service /etc/systemd/system/
