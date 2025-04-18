@@ -7,7 +7,7 @@ curl -Lo ~/.local/bin/kanata https://github.com/jtroo/kanata/releases/download/v
 chmod 755 ~/.local/bin/kanata
 
 # install utilities
-dnf install fzf zoxide nvim ripgrep bat xsel gh
+dnf install fzf zoxide nvim ripgrep bat xsel gh python3-pip
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
@@ -16,6 +16,9 @@ curl -fsSL https://fnm.vercel.app/install | bash
 fnm i 22
 
 bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)"
+
+python -m pip install aider-install
+aider-install
 
 # setup
 gh auth login
