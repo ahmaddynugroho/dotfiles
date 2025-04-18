@@ -18,7 +18,7 @@ local is_linux = wezterm.target_triple:find("linux") ~= nil
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Poimandres"
+config.color_scheme = 'catppuccin-frappe'
 config.font = wezterm.font("FiraCode Nerd Font")
 config.hide_tab_bar_if_only_one_tab = true
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
@@ -37,7 +37,7 @@ if is_windows then
 end
 
 if is_linux then
-	config.font_size = 13
+	config.font_size = 11
 	config.background = {
 		{
 			source = {
