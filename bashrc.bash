@@ -16,6 +16,8 @@ export PAGER=bat
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/.local/bin
 
+HISTCONTROL=ignoreboth
+
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
