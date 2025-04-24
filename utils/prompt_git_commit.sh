@@ -10,13 +10,13 @@ prompt_git_commit() {
     output=$(
       cat <<EOF
 create semantic commit message with the following criteria:
-- always escape backticks (\`) with a backslash (\\)
 - add context like 'feat(dashboard)' or 'refactor(auth-register)' to the title
 - list what's changed
 - use nested list
 - use '-' instead of '*' for the list
 - use 2 spaces for the nested list
-- reply with git commit command (bash)
+- body's lines must not be longer than 100 characters
+- subject must not be sentence-case, start-case, pascal-case, upper-case
 
 \`\`\`
 $full_diff
