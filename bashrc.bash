@@ -9,6 +9,9 @@ alias v="lazygit"
 alias n="nvim"
 alias rgctags="rg --files | ctags -R --links=no -L -"
 
+alias d="docker"
+alias dt="docker run --rm -v .:/app -w /app -it --network host"
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PAGER=bat
@@ -17,6 +20,8 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/.local/bin
 
 HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
