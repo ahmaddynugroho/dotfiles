@@ -1,3 +1,32 @@
+### fedora wsl
+
+```bash
+# install utilities
+dnf install tmux fzf zoxide nvim ripgrep bat xsel gh python3-pip podman
+
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+curl -fsSL https://fnm.vercel.app/install | bash
+fnm i 22
+
+dnf copr enable lihaohong/yazi
+dnf install yazi
+
+python -m pip install aider-install
+aider-install
+
+# setup
+gh auth login
+git config --global user.name "miku4j"
+git config --global user.email "ahmaddwi700@gmail.com"
+git clone https://github.com/ahmaddynugroho/dotfiles ~/repo/dotfiles
+git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
+
+ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
+echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
+```
+
 ### Fedora KDE (DO NOT USE GNOME)
 ```bash
 # install kanata
