@@ -12,7 +12,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 brew install gcc
 
-brew install xsel zip unzip rg gh bat fzf zoxide lazygit fnm nvim yazi tmux pyenv
+brew install xsel zip unzip rg gh bat fzf zoxide lazygit fnm nvim yazi tmux pyenv fd
 
 fnm i 22
 fnm default 22
