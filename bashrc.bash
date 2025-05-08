@@ -1,5 +1,6 @@
 source ~/repo/dotfiles/utils/prompt_git_commit.sh
 source ~/repo/dotfiles/utils/copy_green_ps1.sh
+source ~/repo/dotfiles/utils/yazi.sh
 
 alias la="ls -a"
 alias ll="ls -l"
