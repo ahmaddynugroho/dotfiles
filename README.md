@@ -1,3 +1,32 @@
+### ubuntu wsl (brew)
+```bash
+sudo apt update
+sudo add-apt-repository universe # for libfuse2 for running .appimage
+sudo apt install libfuse2 build-essential
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo >> /home/miku4j/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/miku4j/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+brew install gcc
+
+brew install xsel zip unzip rg gh bat fzf zoxide lazygit fnm nvim yazi tmux pyenv
+
+fnm i 22
+
+gh auth login
+
+git config --global user.name "miku4j"
+git config --global user.email "ahmaddwi700@gmail.com"
+git clone https://github.com/ahmaddynugroho/dotfiles ~/repo/dotfiles
+git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
+
+ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
+echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
+```
+
 ### fedora wsl
 
 ```bash
