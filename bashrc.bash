@@ -39,8 +39,9 @@ if [ -f "$(command -v fnm)" ]; then
 fi
 
 if [ -f "$(command -v pyenv)" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init - bash)"
-  eval "$(pyenv virtualenv-init -)"
 fi
 
 PS1="$PS1\n> "
