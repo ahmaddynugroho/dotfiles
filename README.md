@@ -15,6 +15,10 @@ brew install gcc
 brew install xsel zip unzip rg gh bat fzf zoxide lazygit fnm nvim yazi tmux pyenv
 
 fnm i 22
+fnm default 22
+
+pyenv install 3.10
+pyenv global 3.10
 
 gh auth login
 
