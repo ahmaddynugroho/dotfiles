@@ -1,4 +1,4 @@
-model: 2
+model: gpt41mini
 api-key:
   - gemini=
   - openrouter=
@@ -9,6 +9,9 @@ alias:
   - o25:openrouter/google/gemini-2.5-pro-preview-03-25
   - 3:openrouter/deepseek/deepseek-chat-v3-0324
   - r1:openrouter/deepseek/deepseek-r1
+  - gpt41mini:openrouter/openai/gpt-4.1-mini
+  - gpt41:openrouter/openai/gpt-4.1
 dark-mode: true
 auto-commits: false
 watch-files: true
+cache-prompts: true
