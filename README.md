@@ -2,7 +2,7 @@
 ```bash
 sudo apt update
 sudo add-apt-repository universe # for libfuse2 for running .appimage
-sudo apt install libfuse2 build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt install libfuse2 build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev # libssl etc is for pyenv
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -32,6 +32,7 @@ git clone https://github.com/ahmaddynugroho/nvim ~/.config/nvim
 
 ln -s $(pwd)/repo/dotfiles/.tmux.conf $(pwd)/.tmux.conf
 echo "source ~/repo/dotfiles/bashrc.bash" >> ~/.bashrc
+cp ~/repo/dotfiles/.aider.conf.yml ~
 ```
 
 ### fedora wsl
