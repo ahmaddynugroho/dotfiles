@@ -19,6 +19,7 @@ export PAGER=bat
 
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:~/.local/bin
+PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
