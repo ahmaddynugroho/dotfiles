@@ -20,6 +20,9 @@ fnm default 22
 pyenv install 3.10
 pyenv global 3.10
 
+python -m pip install aider-install
+aider-install
+
 gh auth login
 
 git config --global user.name "miku4j"
