@@ -10,8 +10,8 @@ alias v="lazygit"
 alias n="nvim"
 alias rgctags="rg --files | ctags -R --links=no -L -"
 
-alias pr="podman run --rm -v .:/app -w /app -it --network host" # [P]odman [R]un
-alias prp="podman run -v .:/app -w /app -it --network host" # [P]odman [R]un [P]ersistent
+alias dr="docker run --rm -v .:/app -w /app -it --network host" # [D]ocker [R]un
+alias drp="docker run -v .:/app -w /app -it --network host" # [D]ocker [R]un [P]ersistent
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
