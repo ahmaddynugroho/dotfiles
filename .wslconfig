@@ -1,0 +1,4 @@
+[wsl2]
+processors=6
+swap=8GB
+networkingMode=mirrored
